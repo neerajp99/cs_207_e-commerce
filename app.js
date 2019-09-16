@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const users = require("./routes/api/users");
 
 // init app
 const app = express();
@@ -30,12 +31,8 @@ mongoose
     console.log(err);
   });
 
-// test route
-app.get("/", (req, res) => {
-  res.json({
-    name: "hello"
-  });
-});
+// Use Routing
+app.use("/api/users", users);
 
 // listening app on a specified port
 const port = process.env.PORT || 5001;
