@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const User = require("../../models/User");
+const jwt = require("jsonwebtoken");
+const keys = require("../../config/keys");
 
 // @route POST /api/users/register
 // @description Register new user
@@ -40,6 +42,53 @@ router.post("/register", (req, res) => {
         });
       });
     }
+  });
+});
+
+// @route POST /api/users/login
+// @description Login User /Returning JSON Web Tokens
+// access PUBLIC
+router.post("/login", (req, res) => {
+  // Take email and password
+  const email = req.body.email;
+  const password = req.body.password;
+
+  User.findOne({
+    email
+  }).then(user => {
+    // Check if user exists
+    if (!user) {
+      res.status(403).json("There is no user with this email address.");
+    }
+
+    // If email address exists, check for the password
+    bcrypt.compare(password, user.password).then(isMatch => {
+      if (isMatch) {
+        // if password is matched
+        // create json web token payload
+        const payload = {
+          id: user.id,
+          name: user.name
+        };
+
+        // Sign in
+        jwt.sign(
+          payload,
+          keys.secretOrKey,
+          {
+            expiresIn: 4200
+          },
+          (error, token) => {
+            res.json({
+              success: true,
+              token: "Bearer " + token
+            });
+          }
+        );
+      } else {
+        res.status(400).json("Incorrect Password");
+      }
+    });
   });
 });
 
