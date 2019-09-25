@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 const User = require("../../models/User");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
+const passport = require("passport");
 
 // @route POST /api/users/register
 // @description Register new user
@@ -91,5 +92,21 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
+// @route /api/users/current
+// @description Get details of the current user
+// @access Private (using bearer tokens)
+router.get(
+  "/current",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    console.log("lalala");
+    res.json({
+      id: req.user.id,
+      name: req.user.name,
+      email: req.user.email
+    });
+  }
+);
 
 module.exports = router;
