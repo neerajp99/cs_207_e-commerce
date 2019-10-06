@@ -38,4 +38,42 @@ router.post(
   }
 );
 
+// @route GET /api/item
+// @description Get all items
+// @access PUBLIC
+router.get("/", (req, res) => {
+  Item.find()
+    .then(items => {
+      if (!items) {
+        return res.status(404).json("No items are added yet!");
+      }
+      res.json(items);
+    })
+    .catch(error => {
+      res.status(404).json(error);
+    });
+});
+
+// @route GET /api/item/myItems
+// @description Get all items of a specific seller
+// @access PRIVATE
+router.get(
+  "/myItems",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Item.find({
+      user: req.user.id
+    })
+      .then(items => {
+        if (!items.length > 0) {
+          return res.status(404).json("No items are added yet!");
+        }
+        res.json(items);
+      })
+      .catch(error => {
+        res.status(404).json(error);
+      });
+  }
+);
+
 module.exports = router;
