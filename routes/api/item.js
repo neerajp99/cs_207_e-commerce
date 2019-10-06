@@ -76,4 +76,23 @@ router.get(
   }
 );
 
+// @route GET /api/item/id/:id
+// @description Get item by item id
+// @access Public
+router.get("/id/:id", (req, res) => {
+  Item.findOne({
+    _id: req.params.id
+  })
+    .then(item => {
+      if (!item) {
+        return res.status(404).json("No item found");
+      }
+      // if item is found
+      res.json(item);
+    })
+    .catch(error => {
+      res.status(404).json(error);
+    });
+});
+
 module.exports = router;
