@@ -21,7 +21,8 @@ const ItemSchema = new Schema({
   price: {
     type: Number,
     min: 0,
-    max: 1000000
+    max: 1000000,
+    required: true
   }
   // details: [
   //   {
