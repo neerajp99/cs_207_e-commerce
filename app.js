@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const users = require("./routes/api/users");
 const passport = require("passport");
+const profile = require("./routes/api/profile");
+const item = require("./routes/api/item");
 
 // init app
 const app = express();
@@ -38,6 +40,8 @@ require("./config/passport")(passport);
 
 // Use Routing
 app.use("/api/users", users);
+app.use("/api/profile", profile);
+app.use("/api/item", item);
 
 // listening app on a specified port
 const port = process.env.PORT || 5001;
