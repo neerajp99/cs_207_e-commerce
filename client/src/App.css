@@ -68,7 +68,6 @@ label:focus,
 
 .navbar_button {
   border-color: transparent !important;
-
 }
 .navbar_button > svg {
   position: relative;
@@ -77,7 +76,108 @@ label:focus,
 .navbar_button:hover {
   background-color: #fff !important;
 }
-.navbar_user_auth > li > a {
+
+/* Register Page CSS goes here */
+.register,
+.login {
+  margin-top: 10%;
+}
+
+.register_heading,
+.login_heading {
+  font-family: "Raleway", sans-serif;
+  color: #524c4c;
+}
+
+.text-field {
+  /* max-width: 85%; */
+  margin: 0 auto;
+  margin-top: 3%;
+  border: none !important;
+  border-bottom: 2px solid #9c9c9c !important;
+  border-radius: 0px !important;
+}
+
+.register_form,
+.login_form {
+  position: relative;
+  margin-top: 8%;
+}
+.register_button,
+.login_button {
+  background-color: #0a1226 !important;
+  border-color: #0a1226 !important;
+  height: 50px;
+  font-size: 1.2em !important;
+  font-family: "Raleway", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+.already_line {
+  margin-top: 4%;
+  font-family: "Raleway", sans-serif !important;
+  font-weight: 400 !important;
+}
+.already_line > span > a {
   text-decoration: none !important;
-  color: red;
+  color: #0a1226;
+}
+
+/* Dashboard css goes here */
+.dashboard {
+  overflow-x: hidden;
+}
+.dashboard_left {
+  background-color: #f2ece7;
+  height: 95vh;
+  overflow-y: hidden !important;
+  position: fixed;
+  z-index: 1 !important;
+
+}
+.dashboard_right {
+  background-color: #f9f5f2;
+  position: relative;
+  min-height: 102vh;
+  max-height: auto !important;
+  margin-top: 0 !important;
+}
+.dashboard_row {
+  /* height: 95vh; */
+  width: 100%;
+  margin-left: 0px !important;
+}
+.alert_top {
+  height: 50px;
+  margin-top: -0.5vh !important;
+  margin-bottom: -0.5vh !important;
+  width: 100vw;
+  z-index: 1;
+  background-color: #0a1226;
+  align-items: center;
+}
+.dashboard_alert {
+  font-family: "Raleway", sans-serif;
+  color: #524c4c;
+  padding-top: 0.6em;
+  color: #fff;
+  z-index: 1032 !important;
+}
+.dashboard_list{
+  vertical-align: center;
+  text-align: center;
+  margin-top: 30%;
+  background: transparent;
+}
+.dashboard_list > li {
+  background-color: transparent;
+  border: none !important;
+  font-size: 25px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  /* text-transform: uppercase; */
+}
+.dashboard_left_img{
+  height: 100px;
+  margin-bottom: 10%;
 }
