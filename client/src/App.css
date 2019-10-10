@@ -133,12 +133,11 @@ label:focus,
   overflow-y: hidden !important;
   position: fixed;
   z-index: 1 !important;
-
 }
 .dashboard_right {
   background-color: #f9f5f2;
   position: relative;
-  min-height: 102vh;
+  min-height: 100vh;
   max-height: auto !important;
   margin-top: 0 !important;
 }
@@ -162,8 +161,10 @@ label:focus,
   padding-top: 0.6em;
   color: #fff;
   z-index: 1032 !important;
+  font-size: 20px;
 }
-.dashboard_list{
+
+.dashboard_list {
   vertical-align: center;
   text-align: center;
   margin-top: 30%;
@@ -174,10 +175,231 @@ label:focus,
   border: none !important;
   font-size: 25px;
   font-family: "Raleway", sans-serif;
-  font-weight: 600;
+  font-weight: 400;
+  text-align: left;
+  margin-left: 25%;
   /* text-transform: uppercase; */
 }
-.dashboard_left_img{
+.dashboard_left_img {
   height: 100px;
   margin-bottom: 10%;
+}
+.active_list {
+  font-size: 40px !important;
+}
+
+.user_info {
+  margin-top: 20% !important;
+  left: 15% !important;
+}
+.user_cart {
+  margin-top: 12% !important;
+  margin-left: 10% !important;
+}
+.user_cart_heading {
+  font-size: 55px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+.cart_items {
+  margin-top: 3%;
+  margin-left: 1% !important;
+}
+.cart_item_list {
+  border: none !important;
+}
+.cart_items_details {
+  background-color: #f9f5f2 !important;
+  border: none !important;
+}
+.cart_items_details_heading {
+  font-size: 30px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+}
+.negative,
+.positive {
+  height: 50px;
+  width: 50px;
+  font-size: 30px;
+  background-color: transparent;
+  border: none;
+}
+.cart_counter_input {
+  width: 3.33333vw;
+  height: 2.22222vw;
+  line-height: 2.22222vw;
+  border-radius: 0.13889vw;
+  box-sizing: border-box;
+  border: 1px solid #e6dcd2;
+  text-align: center;
+  background: #f9f5f2;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+.cart_counter {
+  margin-top: 3%;
+}
+.cart_price {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.img_back {
+  background-color: #f9f5f2;
+}
+.subtotal {
+  margin-top: 5%;
+}
+.subtotal_text {
+  font-size: 25px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+}
+.subtotal_text > span {
+  font-weight: 400;
+}
+.cart-li-message {
+  padding: 0.97222vw 1.94444vw;
+  line-height: 1.11111vw;
+  border-radius: 0.13889vw;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  background: #efece9;
+  margin: 1.31944vw 0 0;
+}
+.checkout_button {
+  height: 50px;
+  border-radius: 0px !important;
+  font-size: 20px !important;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400 !important;
+}
+.left_links:hover {
+  background-color: #f9f5f2 !important;
+}
+
+.cardss {
+  display: inline-block !important;
+  margin-left: 5%;
+  margin-top: 5%;
+  background-color: #f2ece7 !important;
+  border: none !important;
+}
+
+.wishlist {
+  margin-top: 10%;
+}
+.wishlist_button {
+  height: 50px;
+  border-radius: 0px !important;
+  font-size: 20px !important;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400 !important;
+}
+.cardss_h3 {
+  font-size: 25px !important;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400 !important;
+}
+.cardss_p {
+  font-size: 17px !important;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400 !important;
+  margin-top: 5px;
+}
+.wishlist_heading {
+  font-size: 55px !important;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700 !important;
+  margin-left: 5% !important;
+  line-height: 1.4em;
+}
+.account_settings {
+  margin-top: 10% !important;
+  margin-left: 8% !important;
+}
+
+.account_heading {
+  font-size: 55px !important;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600 !important;
+  /* margin-left: 5% !important; */
+  line-height: 1.4em;
+}
+.account_settings_title {
+  margin-top: 7%;
+}
+
+.settings_field {
+  border: 2px solid #000;
+  margin-left: 2%;
+  padding-bottom: -10px;
+  margin-top: 5%;
+}
+.settings_field > .form-group > input {
+  background-color: transparent !important;
+  border: none !important;
+}
+.changes_button {
+  margin-left: 3%;
+  height: 55px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  border-radius: 0px !important;
+}
+
+.address_field{
+  margin-top: 5%;
+  min-height: 25vh !important;
+  height: auto;
+  /* background: red; */
+  margin-left: 3% !important;
+  border-radius: 15px !important;
+  background-color: #29292b !important;
+  margin-bottom: 10%;
+  color: #fff !important;
+}
+.address_settings_title{
+  margin-top: 10%;
+}
+.address_name{
+  margin-top: 10%;
+  margin-left: 8%;
+  font-size: 20px !important;
+  font-weight: bold
+}
+.address_p{
+  margin-top: 4%;
+  margin-left: 8% !important;
+  font-size: 17px !important;
+  font-weight: bold
+}
+.address_field > small{
+  font-size: 14px;
+  float: right;
+  position: relative;
+  top:3%;
+  border: 1px solid #fff;
+  padding: 1px 2px 1px 2px;
+}
+.address_field:nth-child(2){
+  background-color: #f2ece7 !important;
+}
+.address_field:nth-child(2) > span {
+  margin: 0 auto !important;
+  color: #000;
+  font-size: 50px;
+  text-align: center;
+  vertical-align: center;
+  display: flex;
+  margin-top: 22% !important;
+  margin-left: 43% !important;
 }
