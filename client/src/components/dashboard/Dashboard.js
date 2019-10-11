@@ -26,8 +26,10 @@ class Dashboard extends Component {
             Free shipping on orders above $100.
           </h5>
         </div>
+
         <div className="row dashboard_row">
           <div className="col-md-4 dashboard_left fixed-bottom">
+          <Link to="/">Go Back</Link>
             <ul className="list-group text-center dashboard_list ">
               <img
                 src={left_image}
@@ -245,23 +247,24 @@ class Dashboard extends Component {
                   <button class="btn-dark btn btn-info mt-4 col-md-10 changes_button">
                     Save Changes
                   </button>
-                  </div>
-                  <h3 className="address_settings_title">Addresses </h3>
-                  <div class="row col-md-12">
-
+                </div>
+                <h3 className="address_settings_title">Addresses </h3>
+                <div class="row col-md-12">
                   <div className="col-md-5 address_field">
-                  <small>DEFAULT</small>
-                  <h4 className="text-left cardss_h3 address_name">Macbook Pro</h4>
+                    <small>DEFAULT</small>
+                    <h4 className="text-left cardss_h3 address_name">
+                      Macbook Pro
+                    </h4>
 
-                  <p className="card-text cardss_p address_p">
-                    B-304, <br />
-                    Antariksh Apartments, <br />
-                    Dwarka Sector-5, <br />
-                    New Delhi-110075
-                  </p>
+                    <p className="card-text cardss_p address_p">
+                      B-304, <br />
+                      Antariksh Apartments, <br />
+                      Dwarka Sector-5, <br />
+                      New Delhi-110075
+                    </p>
                   </div>
                   <div className="col-md-5 address_field">
-                  <span class="m-auto">&#43;</span>
+                    <span class="m-auto">&#43;</span>
                   </div>
                 </div>
               </div>
