@@ -10,6 +10,7 @@ import store from "./store";
 import setAuthToken from "./utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
+import AddProduct from "./components/products/AddProduct";
 
 // Check if the user is already authenticated
 
@@ -45,6 +46,7 @@ class App extends Component {
             <Route exact path="/login" render={() => <Login />} />
             <Route exact path="/register" render={() => <Register />} />
             <Route exact path="/dashboard" render={() => <Dashboard />} />
+            <Route exact path="/add-products" render={() => <AddProduct />} />
           </Router>
         </Provider>
         <h1> </h1>
