@@ -356,7 +356,7 @@ input[type="number"]::-webkit-outer-spin-button {
   border-radius: 0px !important;
 }
 
-.address_field{
+.address_field {
   margin-top: 5%;
   min-height: 25vh !important;
   height: auto;
@@ -367,30 +367,30 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-bottom: 10%;
   color: #fff !important;
 }
-.address_settings_title{
+.address_settings_title {
   margin-top: 10%;
 }
-.address_name{
+.address_name {
   margin-top: 10%;
   margin-left: 8%;
   font-size: 20px !important;
-  font-weight: bold
+  font-weight: bold;
 }
-.address_p{
+.address_p {
   margin-top: 4%;
   margin-left: 8% !important;
   font-size: 17px !important;
-  font-weight: bold
+  font-weight: bold;
 }
-.address_field > small{
+.address_field > small {
   font-size: 14px;
   float: right;
   position: relative;
-  top:3%;
+  top: 3%;
   border: 1px solid #fff;
   padding: 1px 2px 1px 2px;
 }
-.address_field:nth-child(2){
+.address_field:nth-child(2) {
   background-color: #f2ece7 !important;
 }
 .address_field:nth-child(2) > span {
@@ -402,4 +402,8 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   margin-top: 22% !important;
   margin-left: 43% !important;
+}
+.text-area-field {
+  border: 2px solid #9c9c9c !important;
+  height: 200px !important;
 }
