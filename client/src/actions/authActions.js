@@ -55,7 +55,7 @@ export const setCurrentUser = decodedToken => {
 // Logout User
 export const logoutUser = () => dispatch => {
   // Remove token from localStorage
-  localStorage.removeIten("jwtToken");
+  localStorage.removeItem("jwtToken");
   // Remove Auth headers from axios request
   setAuthToken(false);
   // Set current user to an empty object {} which will make isAuthenticated to false
