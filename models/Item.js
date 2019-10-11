@@ -23,6 +23,10 @@ const ItemSchema = new Schema({
     min: 0,
     max: 1000000,
     required: true
+  },
+  size: {
+    type: [String],
+    required: true
   }
   // details: [
   //   {
