@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import Navbar from "../Navbar";
 import TextField from "../commons/TextField";
 import { Link } from "react-router-dom";
-
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { registerUser } from "../../actions/authActions";
 
 class Register extends Component {
   state = {
@@ -12,6 +15,28 @@ class Register extends Component {
     password2: "",
     errors: {}
   };
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
+  onSubmit = event => {
+    event.preventDefault();
+    const newUser = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2
+    };
+    this.props.registerUser(newUser, this.props.history);
+  };
 
   onChange = event => {
     this.setState({
@@ -19,6 +44,7 @@ class Register extends Component {
     });
   };
   render() {
+    const { errors } = this.state;
     return (
       <div className="container">
         <Navbar />
@@ -30,7 +56,11 @@ class Register extends Component {
                 Create Account
               </h1>
               <div className="register_form text-center">
-                <form noValidate className="register_form">
+                <form
+                  noValidate
+                  className="register_form"
+                  onSubmit={this.onSubmit}
+                >
                   <TextField
                     placeholder="ex: Tanuj Sood"
                     name="name"
@@ -65,10 +95,14 @@ class Register extends Component {
                   <input
                     type="submit"
                     className="btn btn-info btn-block mt-4 register_button"
-
                   />
                 </form>
-                <h5 className="text-muted text-center already_line ">Already have an account? <span><Link to="/login">Login here</Link></span></h5>
+                <h5 className="text-muted text-center already_line ">
+                  Already have an account?{" "}
+                  <span>
+                    <Link to="/login">Login here</Link>
+                  </span>
+                </h5>
               </div>
             </div>
           </div>
@@ -78,4 +112,18 @@ class Register extends Component {
   }
 }
 
-export default Register;
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(withRouter(Register));
