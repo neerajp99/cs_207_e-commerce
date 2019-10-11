@@ -4,14 +4,13 @@ import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
 const initialState = {};
-const middleWare = [thunk];
+const middleware = [thunk];
 // use redux dev tools to check redux info on browser
-const composeEnhancers =
-  window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReducer,
   initialState,
-  composeEnhancers(applyMiddleware(...middleWare))
+  composeEnhancers(applyMiddleware(...middleware))
 );
 
 export default store;
