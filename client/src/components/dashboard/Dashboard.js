@@ -9,9 +9,9 @@ class Dashboard extends Component {
   state = {
     active: true,
     user: false,
-    cart: false,
+    cart: true,
     wishlist: false,
-    account: true,
+    account: false,
     email: "",
     number: "",
     password: "",
