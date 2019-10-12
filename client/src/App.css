@@ -43,6 +43,7 @@
   border-bottom: 2px solid #9c9c9c !important;
   border-radius: 0px !important;
   outline: none !important;
+  background-color: transparent !important;
 }
 
 textarea:hover,
@@ -64,6 +65,11 @@ label:focus,
 
 *:focus {
   outline: none;
+}
+
+.navbar{
+  /* position: fixed !important; */
+  background-color: transparent !important;
 }
 
 .navbar_button {
@@ -111,6 +117,7 @@ label:focus,
   font-size: 1.2em !important;
   font-family: "Raleway", sans-serif !important;
   font-weight: 600 !important;
+  border-radius: 0px !important;
 }
 
 .already_line {
@@ -406,4 +413,141 @@ input[type="number"]::-webkit-outer-spin-button {
 .text-area-field {
   border: 2px solid #9c9c9c !important;
   height: 200px !important;
+}
+
+/* Landing page css goes here */
+.landing {
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5),
+    #fffaf6
+  );
+  height: 100vh;
+}
+.landing-container {
+  height: 90vh;
+}
+.landing-second {
+  height: 90vh;
+  background: #fffaf6;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("./img/bgg.svg");
+
+  background-repeat: no-repeat;
+  /* opacity: 0.7; */
+}
+
+.dots-upper {
+  /* top: 1379px; */
+  height: 90vh;
+  background-image: url(./img/dots.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+  left: 0;
+}
+.landing-second-center {
+  height: 50vh;
+}
+.vertical_image {
+  height: 140% !important;
+  position: relative;
+  margin: 0 auto !important;
+  top: 20%;
+  opacity: 0.95;
+  box-shadow: 4px 4px 4px #fffaf6;
+  z-index: 35;
+}
+.horizontal_image {
+  position: absolute;
+  height: 40vh;
+  right: 70%;
+  top: 60%;
+  /* opacity: 0.95; */
+  z-index: 34;
+}
+.weird_image {
+  height: 50%;
+  z-index: 33;
+  position: relative;
+  right: 62%;
+  top: -15%;
+  opacity: 0.8;
+}
+.all_products {
+  height: 50px;
+  width: 30vw;
+  position: absolute;
+  right: 5%;
+  top: 130%;
+  background: #0a1226;
+  border: none;
+  color: #fff;
+  font-size: 20px !important;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600 !important;
+}
+
+/* Products page css goes here */
+.products{
+  min-height: 100vh;
+  height: auto;
+  background-color: #f8f5f2;
+  overflow-x: hidden;
+}
+.products_row{
+  /* position: relative; */
+  padding-top: 10%;
+}
+.prouct_image{
+  max-height: 400px;
+  height: auto;
+  background-color: #f2ede9;
+  /* width: 50px; */
+}
+.product_body{
+  background-color: transparent !important;
+}
+.cardsss{
+  background-color: transparent !important;
+  border: none !important;
+}
+.cardsss_h3{
+  /* font-size: 22px !important; */
+  font-family: "Raleway", sans-serif;
+  font-weight: 600 !important;
+  margin-top: 2%;
+  padding: 1.04167vw 0 0;
+    font-size: 1.11111vw;
+    line-height: 1.25em;
+}
+.products_left_head{
+  font-size: 1.0111vw;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600 !important;
+  margin-left: 40%;
+}
+.products_left_head > span {
+  font-size: 1.8111vw;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600 !important;
+}
+.products_left_list{
+  padding-top: 10% !important;
+}
+.products_left_list_item{
+  margin-left: 30%;
+  border: none !important;
+  background-color: transparent !important;
+  font-size: 1.2111vw;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600 !important;
+  opacity: 0.9;
+  cursor: pointer
 }
