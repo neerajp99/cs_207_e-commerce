@@ -11,6 +11,8 @@ import setAuthToken from "./utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import AddProduct from "./components/products/AddProduct";
+import Landing from "./components/Landing";
+import AllProducts from "./components/products/AllProducts";
 
 // Check if the user is already authenticated
 
@@ -22,7 +24,7 @@ if (localStorage.jwtToken) {
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decodedToken));
   //Check for expired tokens
-  const currentTime = Date.now() / 1000;
+  const currentTime = Date.now() / 500;
   if (decodedToken.exp < currentTime) {
     // log out user
     store.dispatch(logoutUser());
@@ -42,11 +44,12 @@ class App extends Component {
       <div className="app">
         <Provider store={store}>
           <Router>
-            <Route exact path="/" render={() => <Navbar />} />
+            <Route exact path="/" render={() => <Landing />} />
             <Route exact path="/login" render={() => <Login />} />
             <Route exact path="/register" render={() => <Register />} />
             <Route exact path="/dashboard" render={() => <Dashboard />} />
             <Route exact path="/add-products" render={() => <AddProduct />} />
+            <Route exact path="/all-products" render={() => <AllProducts />} />
           </Router>
         </Provider>
         <h1> </h1>
