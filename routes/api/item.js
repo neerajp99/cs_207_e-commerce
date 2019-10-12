@@ -49,6 +49,7 @@ router.post(
 router.get("/", (req, res) => {
   Item.find()
     .then(items => {
+      console.log(items)
       if (!items) {
         return res.status(404).json("No items are added yet!");
       }
@@ -69,6 +70,7 @@ router.get(
     Item.find({
       user: req.user.id
     })
+
       .then(items => {
         if (!items.length > 0) {
           return res.status(404).json("No items are added yet!");
@@ -88,6 +90,7 @@ router.get("/id/:id", (req, res) => {
   Item.findOne({
     _id: req.params.id
   })
+
     .then(item => {
       if (!item) {
         return res.status(404).json("No item found");
