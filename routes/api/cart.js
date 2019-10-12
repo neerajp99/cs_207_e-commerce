@@ -3,7 +3,8 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const Cart = require("../../models/Cart");
-
+const Item = require("../../models/Item");
+// const object = []
 
 // @route POST /api/wishlist/
 // @description post to user wishlist
@@ -13,6 +14,7 @@ router.post(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const updateFields = {};
+    updateFields.user = req.user.id;
 
     if (req.body.productId) {
       updateFields.productId = req.body.productId;
@@ -21,40 +23,60 @@ router.post(
       updateFields.quantity = req.body.quantity;
     }
 
+    updateFields.product = {};
+    if (req.body.name) {
+      updateFields.product.name = req.body.name;
+    }
+    if (req.body.description) {
+      updateFields.product.description = req.body.description;
+    }
+    if (req.body.size) {
+      updateFields.product.size = req.body.size.split(",");
+    }
+    if (req.body.category) {
+      updateFields.product.category = req.body.category;
+    }
+    if (req.body.price) {
+      updateFields.product.price = req.body.price;
+    }
+
     Cart.findOne({
       productId: req.body.id
-    }).then(cart => {
-      if (cart) {
-        Cart.findOneAndUpdate(
-          {
-            user: req.user.id
-          },
-          {
-            $set: updateFields
-          },
-          {
-            new: true
-          }
-        ).then(cart => {
-          res.json(cart);
-        });
-      } else {
-        const newCart = new Cart({
-          user: req.user.id,
-          productId: req.body.id,
-          quantity: req.body.quantity
-        });
+    })
+      .then(cart => {
+        if (cart) {
+          Cart.findOneAndUpdate(
+            {
+              user: req.user.id
+            },
+            {
+              $set: updateFields
+            },
+            {
+              new: true
+            }
+          )
+            .then(carts => {
+              res.json(carts);
+            })
+            .catch(error => {
+              res.status(400).json(error);
+            });
+        } else {
+          new Cart(updateFields)
 
-        newCart
-          .save()
-          .then(productCart => {
-            res.json(productCart);
-          })
-          .catch(error => {
-            res.status(400).json(error);
-          });
-      }
-    });
+            .save()
+            .then(productCart => {
+              res.json(productCart);
+            })
+            .catch(error => {
+              res.status(400).json(error);
+            });
+        }
+      })
+      .catch(error => {
+        res.status(400).json(error);
+      });
   }
 );
 
@@ -68,11 +90,15 @@ router.get(
     Cart.find({
       user: req.user.id
     })
-      .then(cart => {
-        res.json(cart);
+      .then(product => {
+        if (!product) {
+          return res.status(400).json("No product in the cart!");
+        } else {
+          res.json(product);
+        }
       })
       .catch(error => {
-        return res.status(400).json(error);
+        res.status(400).json(error);
       });
   }
 );
