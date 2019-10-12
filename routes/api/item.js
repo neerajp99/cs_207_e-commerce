@@ -16,7 +16,7 @@ router.post(
     })
       .then(item => {
         //Size has an array of string, so split into array
-        if (typeof req.body.size !== "undefined") {
+        if (typeof req.body.size == "undefined") {
           return res.status(400).json("Size is incorrect!");
         }
         const newItem = new Item({
