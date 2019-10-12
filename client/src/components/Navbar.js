@@ -6,7 +6,7 @@ class Navbar extends Component {
     return (
       <div className="container">
         {" "}
-        <nav className="navbar navbar-expand-lg navbar-light bg-white">
+        <nav className="navbar navbar-expand-lg navbar-light">
           <Link className="navbar-brand" to="/">
             Shoes Gallore
           </Link>
