@@ -5,6 +5,8 @@ const users = require("./routes/api/users");
 const passport = require("passport");
 const profile = require("./routes/api/profile");
 const item = require("./routes/api/item");
+const wishlist = require("./routes/api/wishlist");
+const cart = require("./routes/api/cart");
 
 // init app
 const app = express();
@@ -42,6 +44,8 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/profile", profile);
 app.use("/api/item", item);
+app.use("/api/wishlist", wishlist);
+app.use("/api/cart", cart);
 
 // listening app on a specified port
 const port = process.env.PORT || 5001;
