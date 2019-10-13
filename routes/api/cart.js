@@ -110,7 +110,7 @@ router.delete(
   "/:cart_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Cart.deleteOne({ _id: req.params.cart_id }, error => {
+    Cart.deleteOne({ productId: req.params.cart_id }, error => {
       if (!error) {
         Cart.find({ user: req.user.id }).then(product => {
           res.json(product);
