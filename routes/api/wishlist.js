@@ -127,31 +127,35 @@ router.delete(
         productId: req.params.wishlist_id
       })
         .then(cart => {
-          new Cart(updateFields)
+          if (!cart) {
+            new Cart(updateFields)
 
-            .save()
-            .then(productCart => {
-              res.json(productCart);
-            })
-            .then(() => {
-              Wishlist.deleteOne(
-                { productId: req.params.wishlist_id },
-                error => {
-                  if (!error) {
-                    Wishlist.find({ user: req.user.id }).then(product => {
-                      res.json(product);
-                    });
-                  } else {
-                    return res.status(400).json(error);
+              .save()
+              .then(productCart => {
+                res.json(productCart);
+              })
+              .then(() => {
+                Wishlist.deleteOne(
+                  { productId: req.params.wishlist_id },
+                  error => {
+                    if (!error) {
+                      Wishlist.find({ user: req.user.id }).then(product => {
+                        res.json(product);
+                      });
+                    } else {
+                      return res.status(400).json(error);
+                    }
                   }
-                }
-              );
-            })
+                );
+              })
 
-            .catch(error => {
-              console.log("hahahhaa");
-              res.status(400).json(error);
-            });
+              .catch(error => {
+                console.log("hahahhaa");
+                res.status(400).json(error);
+              });
+          } else {
+            return res.status(400).json("Item already present in wishlist!");
+          }
         })
         .catch(error => {
           console.log("jajajaajhaa");
