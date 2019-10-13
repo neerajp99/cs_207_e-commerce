@@ -103,4 +103,23 @@ router.get(
   }
 );
 
+// @route DELETE api/cart/:cart_id
+// @description Delete cart item
+// @access Private
+router.delete(
+  "/:cart_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Cart.deleteOne({ _id: req.params.cart_id }, error => {
+      if (!error) {
+        Cart.find({ user: req.user.id }).then(product => {
+          res.json(product);
+        });
+      } else {
+        return res.status(400).json(error);
+      }
+    });
+  }
+);
+
 module.exports = router;
