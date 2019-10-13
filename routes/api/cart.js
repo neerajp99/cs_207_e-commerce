@@ -122,4 +122,71 @@ router.delete(
   }
 );
 
+// @route DELETE api/cart/:cart_id
+// @description Move cart item to wishlist and remove from cart
+// @access Private
+router.delete(
+  "/moveToWishlist/:cart_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Cart.findOne({
+      productId: req.params.cart_id
+    }).then(wish => {
+      const updateFields = {};
+      updateFields.user = req.user.id;
+
+      updateFields.productId = wish.productId;
+
+      updateFields.quantity = 1;
+
+      updateFields.product = {};
+
+      updateFields.product.name = wish.product.name;
+
+      updateFields.product.description = wish.product.description;
+
+      updateFields.product.size = wish.product.size;
+
+      updateFields.product.category = wish.product.category;
+
+      updateFields.product.price = wish.product.price;
+
+      Wishlist.findOne({
+        productId: req.params.cart_id
+      })
+        .then(cart => {
+          if (!cart) {
+            new Wishlist(updateFields)
+              .save()
+              .then(productCart => {
+                res.json(productCart);
+              })
+              .then(() => {
+                Cart.deleteOne({ productId: req.params.cart_id }, error => {
+                  if (!error) {
+                    Cart.find({ user: req.user.id }).then(product => {
+                      res.json(product);
+                    });
+                  } else {
+                    return res.status(400).json(error);
+                  }
+                });
+              })
+
+              .catch(error => {
+                console.log("hahahhaa");
+                res.status(400).json(error);
+              });
+          } else {
+            return res.status(400).json("Item already present in cart!");
+          }
+        })
+        .catch(error => {
+          console.log("jajajaajhaa");
+          res.status(400).json(error);
+        });
+    });
+  }
+);
+
 module.exports = router;
