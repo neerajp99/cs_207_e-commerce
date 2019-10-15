@@ -1,16 +1,19 @@
-import { GET_ITEM } from "../actions/types";
+import { GET_ITEMS } from "../actions/types";
 import checkEmpty from "../validation/checkEmpty";
 
 const initialState = {
-  item: {},
+  items: {},
   loading: false
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case GET_ITEM:
+    case GET_ITEMS:
       return {
-        ...state
+        ...state,
+        items: action.payload
       };
+    default:
+      return state;
   }
 }
