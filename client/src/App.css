@@ -56,6 +56,7 @@ button:focus,
 button:active,
 button:hover,
 label:focus,
+select:focus,
 .btn:active,
 .btn.active {
   outline: 0px !important;
@@ -87,6 +88,7 @@ label:focus,
 .register,
 .login {
   margin-top: 10%;
+  margin-bottom: 5%;
 }
 
 .register_heading,
@@ -298,6 +300,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-top: 5%;
   background-color: #f2ece7 !important;
   border: none !important;
+
 }
 
 .wishlist {
@@ -517,6 +520,13 @@ input[type="number"]::-webkit-outer-spin-button {
 .cardsss{
   background-color: transparent !important;
   border: none !important;
+  display: inline-grid !important;
+  margin-left: 6%;
+  margin-top: 6%;
+}
+.all_p{
+  margin-top: -4%;
+  margin-bottom: 10%;
 }
 .cardsss_h3{
   /* font-size: 22px !important; */
@@ -550,4 +560,11 @@ input[type="number"]::-webkit-outer-spin-button {
   font-weight: 600 !important;
   opacity: 0.9;
   cursor: pointer
+}
+.select_dropdown{
+
+}
+.select_dropdown:focus{
+  outline: none;
+  box-shadow: 0px;
 }
