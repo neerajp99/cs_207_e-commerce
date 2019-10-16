@@ -13,6 +13,7 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import AddProduct from "./components/products/AddProduct";
 import Landing from "./components/Landing";
 import AllProducts from "./components/products/AllProducts";
+import Product from "./components/products/Product";
 
 // Check if the user is already authenticated
 
@@ -50,6 +51,7 @@ class App extends Component {
             <Route exact path="/dashboard" render={() => <Dashboard />} />
             <Route exact path="/add-products" render={() => <AddProduct />} />
             <Route exact path="/all-products" render={() => <AllProducts />} />
+            <Route exact path="/product/:id" render={() => <Product />} />
           </Router>
         </Provider>
         <h1> </h1>
