@@ -15,13 +15,23 @@ class AllProducts extends Component {
   render() {
     console.log("Props", this.props.items);
     const { items } = this.props.items;
+    Object.keys(items).map((key, index) => {
+      console.log(items[key]);
+    });
     const itemss = Object.keys(items).map((key, index) => (
       <div className="card cardsss" style={{ width: "18rem" }}>
-        <img src={shoe_image} className="card-img-top prouct_image" alt="..." />
+        {" "}
+        <Link to={`/product/${items[key]._id}`}>
+          <img
+            src={shoe_image}
+            className="card-img-top prouct_image"
+            alt="..."
+          />
+        </Link>
         <div className=" product_body">
-          <h3 className="text-left cardsss_h3">Macbook Pro</h3>
+          <h3 className="text-left cardsss_h3">{items[key].name}</h3>
           <small>
-            <strong>From $208.99</strong>
+            <strong>From ${items[key].price}</strong>
           </small>
         </div>
       </div>
