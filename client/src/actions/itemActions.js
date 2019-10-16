@@ -1,4 +1,4 @@
-import { GET_ITEMS, GET_ERRORS } from "./types";
+import { GET_ITEMS, GET_ERRORS, GET_ITEM_BY_ID } from "./types";
 import axios from "axios";
 
 // Post item
@@ -24,6 +24,25 @@ export const getItems = () => dispatch => {
     .then(res => {
       dispatch({
         type: GET_ITEMS,
+        payload: res.data
+      });
+    })
+    .catch(error => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: error.response.data
+      });
+    });
+};
+
+// Get item by ID
+export const getItemById = id => dispatch => {
+  axios
+    .get(`/api/item/id/${id}`)
+    .then(res => {
+      console.log(res.data);
+      dispatch({
+        type: GET_ITEM_BY_ID,
         payload: res.data
       });
     })
