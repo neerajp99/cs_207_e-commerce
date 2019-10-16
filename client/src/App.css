@@ -127,6 +127,7 @@ select:focus,
   font-family: "Raleway", sans-serif !important;
   font-weight: 400 !important;
 }
+
 .already_line > span > a {
   text-decoration: none !important;
   color: #0a1226;
@@ -567,4 +568,47 @@ input[type="number"]::-webkit-outer-spin-button {
 .select_dropdown:focus{
   outline: none;
   box-shadow: 0px;
+}
+
+.nike_logo{
+  padding-top: 20%;
+  padding-left: 20%;
+  width: 50%;
+}
+
+.font{
+  font-size: 9vw;
+  font-family: "Futura", sans-serif;
+  font-weight: 800 !important;
+  padding-left: 20%;
+  overflow: visible;
+}
+
+.font1{
+  font-size: 2vw;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 250 !important;
+  padding-left: 20%;
+  overflow: visible;
+}
+
+.nikeshoe{
+  padding-top: 10%;
+  position: relative;
+  margin-right: 50vw;
+  width: 100%;
+  z-index: 1;
+}
+
+.shop_now{
+  height: 50px;
+  width: 10vw;
+  position: absolute;
+  left: 20%;
+  background: #0a1226;
+  border: #ffffff;
+  color: #fff;
+  font-size: 20px !important;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600 !important;
 }

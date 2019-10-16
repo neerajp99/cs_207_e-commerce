@@ -3,7 +3,9 @@ import Navbar from "./Navbar";
 import shoe3 from "../img/shoe3.jpeg";
 import shoe1 from "../img/shoe1.jpeg";
 import weird from "../img/weird_flex.png";
+import nike from "../img/nike.png";
 import { Link } from "react-router-dom";
+import mag from "../img/LandingShoe.png";
 
 class Landing extends Component {
   render() {
@@ -12,8 +14,25 @@ class Landing extends Component {
         <Navbar />
         <div className="container landing-container">
           <div className="row">
-            <div className="col-md-6 landing-left">Left side</div>
-            <div className="col-md-6 landing-right">Right SIde</div>
+            <div className="col-md-6 landing-left">
+              <div className="row">
+                <img src={nike} alt="verticl" className="nike_logo" />
+              </div>
+              <div className="row">
+                <h1 className="font">AIR MAGS</h1>
+              </div>
+              <div className="row">
+                <h4 className="font1">SPECIAL RELEASE</h4>
+              </div>
+              <div className="row">
+                <Link to="/all-products">
+                  <button className="shop_now">Shop Now</button>
+                </Link>
+              </div>
+            </div>
+            <div className="col-md-6 landing-right">
+              <img src={mag} alt="verticl" className="nikeshoe" />
+            </div>
           </div>
         </div>
         <div className="landing-second">
