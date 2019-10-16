@@ -12,10 +12,26 @@ class Dashboard extends Component {
     cart: true,
     wishlist: false,
     account: false,
+    orders: false,
     email: "",
     number: "",
     password: "",
     password2: ""
+  };
+
+  onClick = event => {
+    event.preventDefault();
+    console.log("ooooo", [event.target.getAttribute("name")]);
+
+    this.setState({
+      active: false,
+      user: false,
+      cart: false,
+      wishlist: false,
+      account: false,
+      orders: false,
+      [event.target.getAttribute("name")]: true
+    });
   };
   render() {
     return (
@@ -29,29 +45,53 @@ class Dashboard extends Component {
 
         <div className="row dashboard_row">
           <div className="col-md-4 dashboard_left fixed-bottom">
-          <Link to="/">Go Back</Link>
+            <Link to="/">Go Back</Link>
             <ul className="list-group text-center dashboard_list ">
               <img
                 src={left_image}
                 alt="left_image"
                 className="dashboard_left_img"
               />
-              <li className="list-group-item list-group-item-action left_links">
+              <li
+                onClick={this.onClick}
+                name="user"
+                className="list-group-item list-group-item-action left_links"
+              >
                 User Info
               </li>
-              <li className="list-group-item list-group-item-action left_links">
+              <li
+                onClick={this.onClick}
+                name="wishlist"
+                className="list-group-item list-group-item-action left_links"
+              >
                 Wishlist
               </li>
-              <li className="list-group-item list-group-item-action left_links">
+              <li
+                onClick={this.onClick}
+                name="cart"
+                className="list-group-item list-group-item-action left_links"
+              >
                 Item Cart
               </li>
-              <li className="list-group-item list-group-item-action left_links">
+              <li
+                onClick={this.onClick}
+                name="order"
+                className="list-group-item list-group-item-action left_links"
+              >
                 My Orders
               </li>
-              <li className="list-group-item list-group-item-action left_links">
+              <li
+                onClick={this.onClick}
+                name="account"
+                className="list-group-item list-group-item-action left_links"
+              >
                 Account Settings
               </li>
-              <li className="list-group-item list-group-item-action left_links">
+              <li
+                onClick={this.onLogout}
+                name="logout"
+                className="list-group-item list-group-item-action left_links"
+              >
                 Logout
               </li>
             </ul>
@@ -64,7 +104,7 @@ class Dashboard extends Component {
                     {" "}
                     <span>Hello,</span> Neeraj
                   </h2>
-                  <img src={cart_image} />
+                  <img src={cart_image} alt="cart_image" />
                 </div>
               </div>
             )}
