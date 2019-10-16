@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class Navbar extends Component {
   render() {
+    const { isAuthenticated } = this.props.auth;
     return (
       <div className="container">
         {" "}
@@ -131,18 +133,25 @@ class Navbar extends Component {
                 </svg>
               </button>
             </form>
-            <ul className="navbar-nav navbar_user_auth">
-              <li className="nav-item ">
-                <Link to="/login" className="nav-link">
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/register" className="nav-link">
-                  Register
-                </Link>
-              </li>
-            </ul>
+
+            {!isAuthenticated && (
+              <ul className="navbar-nav navbar_user_auth">
+                <li className="nav-item ">
+                  <Link to="/login" className="nav-link">
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/register" className="nav-link">
+                    Register
+                  </Link>
+                </li>
+              </ul>
+            )}
+
+            <Link to="/all-products" className="nav-link">
+              All
+            </Link>
           </div>
         </nav>
       </div>
@@ -150,4 +159,8 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Navbar);
