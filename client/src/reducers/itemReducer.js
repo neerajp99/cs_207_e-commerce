@@ -1,9 +1,10 @@
-import { GET_ITEMS } from "../actions/types";
+import { GET_ITEMS, GET_ITEM_BY_ID } from "../actions/types";
 import checkEmpty from "../validation/checkEmpty";
 
 const initialState = {
   items: {},
-  loading: false
+  loading: false,
+  item: {}
 };
 
 export default function(state = initialState, action) {
@@ -13,6 +14,12 @@ export default function(state = initialState, action) {
         ...state,
         items: action.payload
       };
+    case GET_ITEM_BY_ID:
+      return {
+        ...state,
+        item: action.payload
+      };
+
     default:
       return state;
   }
