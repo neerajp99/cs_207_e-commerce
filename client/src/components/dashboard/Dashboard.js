@@ -5,6 +5,8 @@ import left_image from "../../img/nav-logo.svg";
 import cart_image from "../../img/mock.jpg";
 import TextField from "../commons/TextField";
 import { logoutUser } from "../../actions/authActions";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class Dashboard extends Component {
   state = {
@@ -21,6 +23,12 @@ class Dashboard extends Component {
     password2: ""
   };
 
+  componentDidMount() {
+    if (this.state.logout === true) {
+      this.props.logoutUser(this.props.history);
+    }
+  }
+
   onClick = event => {
     event.preventDefault();
     console.log("ooooo", [event.target.getAttribute("name")]);
@@ -34,7 +42,10 @@ class Dashboard extends Component {
       orders: false,
       [event.target.getAttribute("name")]: true
     });
-     if (this.state.logout){}
+  };
+
+  onLogout = () => {
+    this.props.logoutUser(this.props.history);
   };
   render() {
     return (
@@ -319,4 +330,11 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(withRouter(Dashboard));
