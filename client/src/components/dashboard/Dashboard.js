@@ -4,6 +4,7 @@ import Navbar from "../Navbar";
 import left_image from "../../img/nav-logo.svg";
 import cart_image from "../../img/mock.jpg";
 import TextField from "../commons/TextField";
+import { logoutUser } from "../../actions/authActions";
 
 class Dashboard extends Component {
   state = {
@@ -13,6 +14,7 @@ class Dashboard extends Component {
     wishlist: false,
     account: false,
     orders: false,
+    logout: false,
     email: "",
     number: "",
     password: "",
@@ -32,6 +34,7 @@ class Dashboard extends Component {
       orders: false,
       [event.target.getAttribute("name")]: true
     });
+     if (this.state.logout){}
   };
   render() {
     return (
