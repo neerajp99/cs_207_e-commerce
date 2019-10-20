@@ -31,7 +31,7 @@ router.post(
       updateFields.product.description = req.body.description;
     }
     if (req.body.size) {
-      updateFields.product.size = req.body.size.split(",");
+      updateFields.product.size = req.body.size;
     }
     if (req.body.category) {
       updateFields.product.category = req.body.category;
@@ -41,7 +41,7 @@ router.post(
     }
 
     Cart.findOne({
-      productId: req.body.id
+      productId: req.body.productId
     })
       .then(cart => {
         if (cart) {
@@ -80,8 +80,8 @@ router.post(
   }
 );
 
-// @route GET /api/wishlist/
-// @description get user's wishlist
+// @route GET /api/cart/
+// @description get user's cart
 // @access Private
 router.get(
   "/",
@@ -165,7 +165,7 @@ router.delete(
                 Cart.deleteOne({ productId: req.params.cart_id }, error => {
                   if (!error) {
                     Cart.find({ user: req.user.id }).then(product => {
-                      res.json(product);
+                      return res.json(product);
                     });
                   } else {
                     return res.status(400).json(error);
