@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Dashboard from "./components/dashboard/Dashboard";
@@ -14,6 +14,7 @@ import AddProduct from "./components/products/AddProduct";
 import Landing from "./components/Landing";
 import AllProducts from "./components/products/AllProducts";
 import Product from "./components/products/Product";
+import ProtectedRoute from "./components/commons/ProtectedRoute";
 
 // Check if the user is already authenticated
 
@@ -48,8 +49,16 @@ class App extends Component {
             <Route exact path="/" render={() => <Landing />} />
             <Route exact path="/login" render={() => <Login />} />
             <Route exact path="/register" render={() => <Register />} />
-            <Route exact path="/dashboard" render={() => <Dashboard />} />
-            <Route exact path="/add-products" render={() => <AddProduct />} />
+            <Switch>
+              <ProtectedRoute exact path="/dashboard" component={Dashboard} />
+            </Switch>
+            <Switch>
+              <ProtectedRoute
+                exact
+                path="/add-products"
+                component={AddProduct}
+              />
+            </Switch>
             <Route exact path="/all-products" render={() => <AllProducts />} />
             <Route exact path="/product/:id" render={() => <Product />} />
           </Router>
