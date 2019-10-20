@@ -618,6 +618,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-family: "Raleway", sans-serif;
   font-weight: 600 !important;
 }
+<<<<<<< HEAD
 .wishlist_delete_icon{
   height: 20px;
   float: right;
@@ -636,4 +637,30 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-top: -20% !important;
   font-family: "Raleway", sans-serif;
   font-weight: 500 !important;
+=======
+
+.product_image{
+  padding-top: 30%;
+  padding-left: 20%;
+  position: relative;
+  width: 100%;
+}
+
+.product_container{
+  height: 90vh;
+  display: flex;
+}
+
+.product_left{
+  display: flex;
+}
+
+.product_right{
+  display: flex;
+}
+
+.product-price{
+  padding-top: 30%;
+  font-family: "Futura", sans-serif;
+>>>>>>> 0f5764d981fa2dfc28251eeda2a82acdbdee2d41
 }

@@ -3,6 +3,7 @@ import Navbar from "../Navbar";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getItemById } from "../../actions/itemActions";
+import prod from "../../img/images.jpeg";
 import { addToCart } from "../../actions/cartActions";
 import { addToWishlist } from "../../actions/wishlistActions";
 
@@ -47,10 +48,20 @@ class Product extends Component {
     return (
       <div className="product">
         <Navbar />
-        Hello world
-        <button onClick={this.onClickCart}>Add to cart</button>
-        <button onClick={this.onClickWishlist}>Add to wishlist</button>
+        <div className="container product-container">
+        <div className="row">
+          <div className="col-md-6 product-left">
+            <img src={prod} alt="verticl" className="product_image" />
+          </div>
+          <div className="col-md-6 product-right">
+              <h1 className="product-price">$699</h1>
+              <h3>JORDAN</h3>
+              <h2>AIR JORDAN XXXIV PF 'WHITE'</h2>
+          </div>
+        </div>
+        </div>
       </div>
+
     );
   }
 }
