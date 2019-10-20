@@ -177,7 +177,7 @@ select:focus,
 .dashboard_list {
   vertical-align: center;
   text-align: center;
-  margin-top: 30%;
+  margin-top: 10%;
   background: transparent;
 }
 .dashboard_list > li {
@@ -191,8 +191,11 @@ select:focus,
   /* text-transform: uppercase; */
 }
 .dashboard_left_img {
-  height: 100px;
+  height: 25vh;
+  width: 50%;
   margin-bottom: 10%;
+  text-align: center;
+  margin-left: 18%;
 }
 .active_list {
   font-size: 40px !important;
@@ -758,4 +761,16 @@ input[type="number"]::-webkit-outer-spin-button {
 .checked_size {
   background: #0a1226;
   color: #fff;
+}
+.go_back{
+  /* border: 4px solid #000; */
+}
+.back_image{
+  height: 45px;
+  position: relative;
+  margin-top: 2vh;
+  opacity: 1;
+}
+.back_image:hover{
+  opacity: 0.7;
 }
