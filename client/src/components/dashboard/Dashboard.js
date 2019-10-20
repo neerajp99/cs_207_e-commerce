@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
-import left_image from "../../img/nav-logo.svg";
+import left_image from "../../Icons/Logo.png";
+import back_image from "../../img/back.jpg"
 import cart_image from "../../img/mock.jpg";
 import TextField from "../commons/TextField";
 import { logoutUser } from "../../actions/authActions";
@@ -74,7 +75,7 @@ class Dashboard extends Component {
 
         <div className="row dashboard_row">
           <div className="col-md-4 dashboard_left fixed-bottom">
-            <Link to="/">Go Back</Link>
+            <Link to="/" className="go_back"><img src={back_image} alt="back image" className="back_image"/></Link>
             <ul className="list-group text-center dashboard_list ">
               <img
                 src={left_image}
