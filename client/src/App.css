@@ -218,6 +218,8 @@ select:focus,
 }
 .cart_item_list {
   border: none !important;
+  min-width: 780px !important;
+  margin-top: 4%;
 }
 .cart_items_details {
   background-color: #f9f5f2 !important;
