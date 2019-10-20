@@ -3,7 +3,7 @@ import Navbar from "../Navbar";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getItemById } from "../../actions/itemActions";
-import prod from "../../img/product_shoe.jpeg";
+import prod from "../../img/images.jpeg";
 
 class Product extends Component {
   componentDidMount() {
@@ -18,18 +18,18 @@ class Product extends Component {
     return (
       <div className="product">
         <Navbar />
-        <div className="col-md-4" product-left>
-          <img src={prod} alt="verticl" className="product_image" />
-        </div>
-          <div className="col-md-8" product-right>
-            <div className="row">
+        <div className="container product-container">
+        <div className="row">
+          <div className="col-md-6 product-left">
+            <img src={prod} alt="verticl" className="product_image" />
+          </div>
+          <div className="col-md-6 product-right">
+              <h1 className="product-price">$699</h1>
               <h3>JORDAN</h3>
-            </div>
+              <h2>AIR JORDAN XXXIV PF 'WHITE'</h2>
           </div>
-          <div className="row">
-            <h2>AIR JORDAN XXXIV PF 'WHITE'</h2>
-          </div>
-
+        </div>
+        </div>
       </div>
 
     );
