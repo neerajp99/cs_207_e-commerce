@@ -7,6 +7,10 @@ import TextField from "../commons/TextField";
 import { logoutUser } from "../../actions/authActions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { getCartItems } from "../../actions/cartActions";
+import { getWishlistItems } from "../../actions/wishlistActions";
+import Cart from "./Cart";
+import Wishlist from "./Wishlist";
 
 class Dashboard extends Component {
   state = {
@@ -24,6 +28,8 @@ class Dashboard extends Component {
   };
 
   componentDidMount() {
+    this.props.getCartItems();
+    this.props.getWishlistItems();
     if (this.state.logout === true) {
       this.props.logoutUser(this.props.history);
     }
@@ -48,6 +54,15 @@ class Dashboard extends Component {
     this.props.logoutUser(this.props.history);
   };
   render() {
+    console.log(this.props.wishlist);
+    const { cartItem } = this.props.cart;
+    const { wishlistItem } = this.props.wishlist;
+    const cartItems = Object.keys(cartItem).map((key, index) => (
+      <Cart key={key} details={cartItem[key]} />
+    ));
+    const wishlistItems = Object.keys(wishlistItem).map((key, index) => (
+      <Wishlist key={key} details={wishlistItem[key]} />
+    ));
     return (
       <div className="dashboard">
         <div className="alert_top text-center m-auto fixed-top">
@@ -129,60 +144,17 @@ class Dashboard extends Component {
                   YOUR <br /> CART ITEMS
                 </h1>
                 <br />
-                <div className="row cart_items">
-                  <div
-                    className="card mb-3 cart_item_list"
-                    style={{ maxWidth: 740 }}
-                  >
-                    <div className="row no-gutters">
-                      <div className="col-md-4 img_back">
-                        <img src={cart_image} className="card-img" alt="..." />
-                      </div>
-                      <div className="col-md-8 cart_items_details">
-                        <div className="card-body">
-                          <h5 className="card-title cart_items_details_heading">
-                            IPhone 11F
-                          </h5>
-                          <small className="cart_price">$10.99</small>
-
-                          <p className="card-text">
-                            This is a wider card with supporting text below as a
-                            natural lead-in to additional content. This content
-                            is a little bit longer.
-                          </p>
-                          <p className="card-text">
-                            <small className="text-muted">
-                              Last updated 3 mins ago
-                            </small>
-                            <div className="cart_counter">
-                              <button className="negative">&#8722; </button>
-
-                              <input
-                                className="cart-li-qty-no"
-                                value="1"
-                                pattern="[0-9]+"
-                                type="number"
-                                onChange={this.onChange}
-                                className="cart_counter_input"
-                              />
-                              <button className="positive">&#43;</button>
-                            </div>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <div className="row cart_items">{cartItems}</div>
                 <div className="subtotal col-md-8 ">
                   <h3 className="subtotal_text text-left">
                     <span>Subtotal:</span> $20.98
                   </h3>
 
-                  <div class="cart-li-message">
+                  <div className="cart-li-message">
                     Get free shipping on all orders over $350.
                   </div>
 
-                  <button class="btn-dark btn btn-info btn-block mt-4 checkout_button">
+                  <button className="btn-dark btn btn-info btn-block mt-4 checkout_button">
                     Checkout
                   </button>
                 </div>
@@ -194,54 +166,8 @@ class Dashboard extends Component {
                 <h1 className="wishlist_heading">
                   YOUR <br /> WISHLIST
                 </h1>
-                <div className="card cardss" style={{ width: "18rem" }}>
-                  <img src={cart_image} className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h3 className="text-left cardss_h3">Macbook Pro</h3>
-                    <small>
-                      <strong>$208.99</strong>
-                    </small>
-                    <p className="card-text cardss_p">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <button className="btn-dark btn btn-info btn-block mt-4 wishlist_button">
-                    Add to cart
-                  </button>
-                </div>
-                <div className="card cardss" style={{ width: "18rem" }}>
-                  <img src={cart_image} className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h3 className="text-left cardss_h3">Macbook Pro</h3>
-                    <small>
-                      <strong>$208.99</strong>
-                    </small>
-                    <p className="card-text cardss_p">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <button className="btn-dark btn btn-info btn-block mt-4 wishlist_button">
-                    Add to cart
-                  </button>
-                </div>
-                <div className="card cardss" style={{ width: "18rem" }}>
-                  <img src={cart_image} className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h3 className="text-left cardss_h3">Macbook Pro</h3>
-                    <small>
-                      <strong>$208.99</strong>
-                    </small>
-                    <p className="card-text cardss_p">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <button className="btn-dark btn btn-info btn-block mt-4 wishlist_button">
-                    Add to cart
-                  </button>
-                </div>
+
+                {wishlistItems}
               </div>
             )}
 
@@ -331,10 +257,12 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  cart: state.cart,
+  wishlist: state.wishlist
 });
 
 export default connect(
   mapStateToProps,
-  { logoutUser }
+  { logoutUser, getCartItems, getWishlistItems }
 )(withRouter(Dashboard));

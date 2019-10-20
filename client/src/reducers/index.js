@@ -1,11 +1,14 @@
 import { combineReducers } from "redux";
 import authReducer from "./authReducer";
 import errorReducer from "./errorReducer";
-import itemReducer from "./itemReducer"
+import itemReducer from "./itemReducer";
+import cartReducer from "./cartReducer";
+import wishlistReducer from "./wishlistReducer";
 
 export default combineReducers({
   auth: authReducer,
   error: errorReducer,
-  items: itemReducer
-
+  items: itemReducer,
+  cart: cartReducer,
+  wishlist: wishlistReducer
 });

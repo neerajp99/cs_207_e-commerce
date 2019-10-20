@@ -218,6 +218,8 @@ select:focus,
 }
 .cart_item_list {
   border: none !important;
+  min-width: 780px !important;
+  margin-top: 4%;
 }
 .cart_items_details {
   background-color: #f9f5f2 !important;
@@ -261,7 +263,10 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-bottom: 10px;
 }
 .img_back {
-  background-color: #f9f5f2;
+  background-color: #f9f5f2 !important;
+}
+.no-gutters{
+  background-color: #f9f5f2 !important;
 }
 .subtotal {
   margin-top: 5%;
@@ -318,6 +323,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 25px !important;
   font-family: "Raleway", sans-serif;
   font-weight: 400 !important;
+  margin-top: 8%;
 }
 .cardss_p {
   font-size: 17px !important;
@@ -613,6 +619,26 @@ input[type="number"]::-webkit-outer-spin-button {
   font-weight: 600 !important;
 }
 
+.wishlist_delete_icon{
+  height: 20px;
+  float: right;
+  cursor: pointer;
+}
+.cart_delete_icon{
+  height: 25px;
+  float: right;
+  margin-right: 40% !important;
+  margin-top: 3.4% !important;
+  cursor: pointer;
+}
+.c2w_button{
+  background-color :#212529 !important;
+  border-radius: 0px !important;
+  margin-top: -20% !important;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500 !important;
+}
+
 .product_image{
   padding-top: 30%;
   padding-left: 15%;
@@ -635,6 +661,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .product-price{
+
   display: block;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
@@ -678,6 +705,11 @@ input[type="number"]::-webkit-outer-spin-button {
   border: #ffffff;
   color: #fff;
   font-size: 15px !important;
-  font-family: "Raleway", sans-serif;
-  font-weight: 600 !important;
+/*   font-family: "Raleway", sans-serif;
+  font-weight: 600 !important; */
+
+  padding-top: 30%;
+  font-family: "Futura", sans-serif;
+
+
 }

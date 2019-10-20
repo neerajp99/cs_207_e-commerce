@@ -28,7 +28,7 @@ router.post(
       updateFields.product.description = req.body.description;
     }
     if (req.body.size) {
-      updateFields.product.size = req.body.size.split(",");
+      updateFields.product.size = req.body.size;
     }
     if (req.body.category) {
       updateFields.product.category = req.body.category;
@@ -38,7 +38,7 @@ router.post(
     }
 
     Wishlist.findOne({
-      productId: req.body.id
+      productId: req.body.productId
     }).then(wish => {
       if (wish) {
         return res.status(400).json("Item already there in wishlist");
@@ -49,7 +49,7 @@ router.post(
             res.json(productWish);
           })
           .catch(error => {
-            res.status(400).json(error);
+            res.status(402).json(error);
           });
       }
     });
@@ -154,7 +154,7 @@ router.delete(
                 res.status(400).json(error);
               });
           } else {
-            return res.status(400).json("Item already present in wishlist!");
+            return res.status(400).json("Item already present in cart!");
           }
         })
         .catch(error => {
