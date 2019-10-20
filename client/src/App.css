@@ -440,7 +440,8 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 90vh;
 }
 .landing-second {
-  height: 90vh;
+  display: flex;
+  height: 80vh;
   background: #fffaf6;
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.5),
@@ -596,7 +597,8 @@ input[type="number"]::-webkit-outer-spin-button {
   overflow: visible;
 }
 
-.font1 {
+.font1{
+  padding-bottom: 1%;
   font-size: 2vw;
   font-family: "Helvetica Neue", sans-serif;
   font-weight: 250 !important;
@@ -716,61 +718,32 @@ input[type="number"]::-webkit-outer-spin-button {
 
   /* padding-top: 30%; */
   font-family: "Futura", sans-serif;
-  letter-spacing: 0.05rem;
 }
 
-.prod-list-item {
-  margin-left: 5% !important;
+.landing_img{
+  padding-left: 10%;
+  padding-top: 30%;
+  width: 38vw;
 }
-
-.shoe_size_list {
-  list-style-type: none;
-  display: inline-block;
-  position: absolute;
-  margin-left: -4vw;
-  margin-top: 2vh;
-
-  /* margin-bottom: % !important; */
+.landing-heading{
+  padding-top: 35%;
+  padding-left: 10%;
+  display: block;
+  font-size: 24px;
+  font-family: "Rubik-Medium";
+  font-weight: 400;
 }
-.shoe_size_list_item {
-  display: inline-block;
-  margin-left: 2vw;
-  border: 2px solid #0a1226;
-  height: 60px;
-  text-align: center;
-  vertical-align: center;
-  width: 60px;
-  border-radius: 100%;
-  /* padding-left: 15px;
-  padding-right: 15px; */
-  padding-top: 15px;
-  font-family: "Futura", sans-serif;
-  font-weight: 700;
-  -mozkit-transition: 0.3s all ease-in-out;
-  -webkit-transition: 0.3s all ease-in-out;
-  transition: 0.3s all ease-in-out;
-  /* padding-bottom: 15px; */
+.landing-desc{
+  padding-left: 10%;
+  padding-right: 15%;
+  font-size: 16px;
+  font-family: "Rubik";
+  font-weight: 30;
 }
-.shoe_size_list_item:hover {
-  background: #0a1226;
-  color: #fff;
-  -mozkit-transition: 0.3s all ease-in-out;
-  -webkit-transition: 0.3s all ease-in-out;
-  transition: 0.3s all ease-in-out;
-}
-.checked_size {
-  background: #0a1226;
-  color: #fff;
-}
-.go_back{
-  /* border: 4px solid #000; */
-}
-.back_image{
-  height: 45px;
-  position: relative;
-  margin-top: 2vh;
-  opacity: 1;
-}
-.back_image:hover{
-  opacity: 0.7;
+.shop-tag{
+  padding-left: 10%;
+  color: #f75c03;
+  font-size: 18px;
+  font-family: "Rubik-Medium";
+  font-weight: 200;
 }
