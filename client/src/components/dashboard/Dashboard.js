@@ -8,7 +8,9 @@ import { logoutUser } from "../../actions/authActions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getCartItems } from "../../actions/cartActions";
-import Cart from './Cart'
+import { getWishlistItems } from "../../actions/wishlistActions";
+import Cart from "./Cart";
+import Wishlist from "./Wishlist";
 
 class Dashboard extends Component {
   state = {
@@ -27,6 +29,7 @@ class Dashboard extends Component {
 
   componentDidMount() {
     this.props.getCartItems();
+    this.props.getWishlistItems();
     if (this.state.logout === true) {
       this.props.logoutUser(this.props.history);
     }
@@ -51,11 +54,15 @@ class Dashboard extends Component {
     this.props.logoutUser(this.props.history);
   };
   render() {
-    console.log(this.props.cart);
+    console.log(this.props.wishlist);
     const { cartItem } = this.props.cart;
+    const { wishlistItem } = this.props.wishlist;
     const cartItems = Object.keys(cartItem).map((key, index) => (
-      <Cart details = {cartItem[key]}/>
-          ));
+      <Cart key={key} details={cartItem[key]} />
+    ));
+    const wishlistItems = Object.keys(wishlistItem).map((key, index) => (
+      <Wishlist key={key} details={wishlistItem[key]} />
+    ));
     return (
       <div className="dashboard">
         <div className="alert_top text-center m-auto fixed-top">
@@ -159,54 +166,8 @@ class Dashboard extends Component {
                 <h1 className="wishlist_heading">
                   YOUR <br /> WISHLIST
                 </h1>
-                <div className="card cardss" style={{ width: "18rem" }}>
-                  <img src={cart_image} className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h3 className="text-left cardss_h3">Macbook Pro</h3>
-                    <small>
-                      <strong>$208.99</strong>
-                    </small>
-                    <p className="card-text cardss_p">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <button className="btn-dark btn btn-info btn-block mt-4 wishlist_button">
-                    Add to cart
-                  </button>
-                </div>
-                <div className="card cardss" style={{ width: "18rem" }}>
-                  <img src={cart_image} className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h3 className="text-left cardss_h3">Macbook Pro</h3>
-                    <small>
-                      <strong>$208.99</strong>
-                    </small>
-                    <p className="card-text cardss_p">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <button className="btn-dark btn btn-info btn-block mt-4 wishlist_button">
-                    Add to cart
-                  </button>
-                </div>
-                <div className="card cardss" style={{ width: "18rem" }}>
-                  <img src={cart_image} className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h3 className="text-left cardss_h3">Macbook Pro</h3>
-                    <small>
-                      <strong>$208.99</strong>
-                    </small>
-                    <p className="card-text cardss_p">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <button className="btn-dark btn btn-info btn-block mt-4 wishlist_button">
-                    Add to cart
-                  </button>
-                </div>
+
+                {wishlistItems}
               </div>
             )}
 
@@ -297,10 +258,11 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  cart: state.cart
+  cart: state.cart,
+  wishlist: state.wishlist
 });
 
 export default connect(
   mapStateToProps,
-  { logoutUser, getCartItems }
+  { logoutUser, getCartItems, getWishlistItems }
 )(withRouter(Dashboard));
