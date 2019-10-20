@@ -68,7 +68,7 @@ select:focus,
   outline: none;
 }
 
-.navbar{
+.navbar {
   /* position: fixed !important; */
   background-color: transparent !important;
 }
@@ -265,7 +265,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .img_back {
   background-color: #f9f5f2 !important;
 }
-.no-gutters{
+.no-gutters {
   background-color: #f9f5f2 !important;
 }
 .subtotal {
@@ -306,7 +306,6 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-top: 5%;
   background-color: #f2ece7 !important;
   border: none !important;
-
 }
 
 .wishlist {
@@ -505,46 +504,51 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /* Products page css goes here */
-.products{
+.product {
+  /* background-color: #f9f5f2; */
+  min-height: 100vh;
+  height: auto;
+}
+.products {
   min-height: 100vh;
   height: auto;
   background-color: #f8f5f2;
   overflow-x: hidden;
 }
-.products_row{
+.products_row {
   /* position: relative; */
   padding-top: 10%;
 }
-.prouct_image{
+.prouct_image {
   max-height: 400px;
   height: auto;
   background-color: #f2ede9;
   /* width: 50px; */
 }
-.product_body{
+.product_body {
   background-color: transparent !important;
 }
-.cardsss{
+.cardsss {
   background-color: transparent !important;
   border: none !important;
   display: inline-grid !important;
   margin-left: 6%;
   margin-top: 6%;
 }
-.all_p{
+.all_p {
   margin-top: -4%;
   margin-bottom: 10%;
 }
-.cardsss_h3{
+.cardsss_h3 {
   /* font-size: 22px !important; */
   font-family: "Raleway", sans-serif;
   font-weight: 600 !important;
   margin-top: 2%;
   padding: 1.04167vw 0 0;
-    font-size: 1.11111vw;
-    line-height: 1.25em;
+  font-size: 1.11111vw;
+  line-height: 1.25em;
 }
-.products_left_head{
+.products_left_head {
   font-size: 1.0111vw;
   font-family: "Raleway", sans-serif;
   font-weight: 600 !important;
@@ -555,10 +559,10 @@ input[type="number"]::-webkit-outer-spin-button {
   font-family: "Raleway", sans-serif;
   font-weight: 600 !important;
 }
-.products_left_list{
+.products_left_list {
   padding-top: 10% !important;
 }
-.products_left_list_item{
+.products_left_list_item {
   margin-left: 30%;
   border: none !important;
   background-color: transparent !important;
@@ -566,23 +570,22 @@ input[type="number"]::-webkit-outer-spin-button {
   font-family: "Raleway", sans-serif;
   font-weight: 600 !important;
   opacity: 0.9;
-  cursor: pointer
+  cursor: pointer;
 }
-.select_dropdown{
-
+.select_dropdown {
 }
-.select_dropdown:focus{
+.select_dropdown:focus {
   outline: none;
   box-shadow: 0px;
 }
 
-.nike_logo{
+.nike_logo {
   padding-top: 20%;
   padding-left: 20%;
   width: 50%;
 }
 
-.font{
+.font {
   font-size: 9vw;
   font-family: "Futura", sans-serif;
   font-weight: 800 !important;
@@ -590,7 +593,7 @@ input[type="number"]::-webkit-outer-spin-button {
   overflow: visible;
 }
 
-.font1{
+.font1 {
   font-size: 2vw;
   font-family: "Helvetica Neue", sans-serif;
   font-weight: 250 !important;
@@ -598,7 +601,7 @@ input[type="number"]::-webkit-outer-spin-button {
   overflow: visible;
 }
 
-.nikeshoe{
+.nikeshoe {
   padding-top: 10%;
   position: relative;
   margin-right: 50vw;
@@ -606,7 +609,7 @@ input[type="number"]::-webkit-outer-spin-button {
   z-index: 1;
 }
 
-.shop_now{
+.shop_now {
   height: 50px;
   width: 10vw;
   position: absolute;
@@ -619,97 +622,140 @@ input[type="number"]::-webkit-outer-spin-button {
   font-weight: 600 !important;
 }
 
-.wishlist_delete_icon{
+.wishlist_delete_icon {
   height: 20px;
   float: right;
   cursor: pointer;
 }
-.cart_delete_icon{
+.cart_delete_icon {
   height: 25px;
   float: right;
   margin-right: 40% !important;
   margin-top: 3.4% !important;
   cursor: pointer;
 }
-.c2w_button{
-  background-color :#212529 !important;
+.c2w_button {
+  background-color: #212529 !important;
   border-radius: 0px !important;
   margin-top: -20% !important;
   font-family: "Raleway", sans-serif;
   font-weight: 500 !important;
 }
 
-.product_image{
+.product_image {
   padding-top: 30%;
   padding-left: 15%;
   padding-right: 5%;
+  margin-left: -18%;
   position: relative;
-  width: 100%;
+  width: 120%;
 }
 
-.product_container{
+.product_container {
   height: 90vh;
   display: flex;
 }
 
-.product_left{
+.product_left {
   display: flex;
 }
 
-.product_right{
+.product_right {
   display: flex;
 }
 
-.product-price{
-
+.product-price {
   display: block;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
-  font-size: 28px;
+  font-size: 25px;
 }
-.divider{
+.divider {
   width: 10%;
 }
-.brand{
+.brand {
   padding-top: 20%;
   font-size: 25px;
   font-weight: 200;
   display: block;
 }
-.product-name{
-  font-size: 30px;
+.product-name {
+  font-size: 35px;
   font-family: "Montserrat";
 }
-.description{
-  font-family: "Montserrat";
+.description {
+  font-family: "Raleway", sans-serif;
   padding-top: 5%;
   font-size: 17px;
 }
-.product-description{
-  font-family: "Montserrat";
-  font-size: 14px;
+.product-description {
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
 }
-.prod-list{
+.prod-list {
   list-style-type: none;
-  display: flex;
+  display: inline-flex;
+  margin-left: -12%;
+  margin-top: 10vh !important;
 }
-.list-item{
-  padding-right: 5%;
-  padding-top: 5%;
-}
-.prod-button{
-  height: 30px;
-  width: 10vw;
+
+.prod-button {
+  height: 90%;
+  width: 15vw !important ;
   position: relative;
   background: #0a1226;
   border: #ffffff;
   color: #fff;
   font-size: 15px !important;
-/*   font-family: "Raleway", sans-serif;
+  border-radius: 0px !important;
+  /*   font-family: "Raleway", sans-serif;
   font-weight: 600 !important; */
 
-  padding-top: 30%;
+  /* padding-top: 30%; */
   font-family: "Futura", sans-serif;
+  letter-spacing: 0.05rem;
+}
 
+.prod-list-item {
+  margin-left: 5% !important;
+}
 
+.shoe_size_list {
+  list-style-type: none;
+  display: inline-block;
+  position: absolute;
+  margin-left: -4vw;
+  margin-top: 2vh;
+
+  /* margin-bottom: % !important; */
+}
+.shoe_size_list_item {
+  display: inline-block;
+  margin-left: 2vw;
+  border: 2px solid #0a1226;
+  height: 60px;
+  text-align: center;
+  vertical-align: center;
+  width: 60px;
+  border-radius: 100%;
+  /* padding-left: 15px;
+  padding-right: 15px; */
+  padding-top: 15px;
+  font-family: "Futura", sans-serif;
+  font-weight: 700;
+  -mozkit-transition: 0.3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  /* padding-bottom: 15px; */
+}
+.shoe_size_list_item:hover {
+  background: #0a1226;
+  color: #fff;
+  -mozkit-transition: 0.3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+}
+.checked_size {
+  background: #0a1226;
+  color: #fff;
 }
