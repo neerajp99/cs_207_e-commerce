@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import TextAreaField from "../commons/TextAreaField";
-import SelectList from "../commons/SelectList"
+import SelectList from "../commons/SelectList";
 
 class AddProduct extends Component {
   state = {
@@ -73,6 +73,24 @@ class AddProduct extends Component {
         value: 9
       }
     ];
+    const types = [
+      {
+        label: "* Select Shoe Category",
+        value: 0
+      },
+      {
+        label: "Casual",
+        value: "Casual"
+      },
+      {
+        label: "Formal",
+        value: "Formal"
+      },
+      {
+        label: "Running",
+        value: "Running"
+      }
+    ];
     return (
       <div className="container">
         <Navbar />
@@ -105,12 +123,13 @@ class AddProduct extends Component {
                     onChange={this.onChange}
                     label="Product Description"
                   />
-                  <TextField
+
+                  <SelectList
                     placeholder="ex: Casual, Formal etc"
                     name="category"
-                    type="text"
                     value={this.state.category}
                     onChange={this.onChange}
+                    options={types}
                     label="Product Category"
                   />
                   <TextField
