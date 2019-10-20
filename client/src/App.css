@@ -615,7 +615,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .product_image{
   padding-top: 30%;
-  padding-left: 20%;
+  padding-left: 15%;
+  padding-right: 5%;
   position: relative;
   width: 100%;
 }
@@ -634,6 +635,49 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .product-price{
-  padding-top: 30%;
-  font-family: "Futura", sans-serif;
+  display: block;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+}
+.divider{
+  width: 10%;
+}
+.brand{
+  padding-top: 20%;
+  font-size: 25px;
+  font-weight: 200;
+  display: block;
+}
+.product-name{
+  font-size: 30px;
+  font-family: "Montserrat";
+}
+.description{
+  font-family: "Montserrat";
+  padding-top: 5%;
+  font-size: 17px;
+}
+.product-description{
+  font-family: "Montserrat";
+  font-size: 14px;
+}
+.prod-list{
+  list-style-type: none;
+  display: flex;
+}
+.list-item{
+  padding-right: 5%;
+  padding-top: 5%;
+}
+.prod-button{
+  height: 30px;
+  width: 10vw;
+  position: relative;
+  background: #0a1226;
+  border: #ffffff;
+  color: #fff;
+  font-size: 15px !important;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600 !important;
 }
