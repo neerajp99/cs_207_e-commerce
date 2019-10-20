@@ -438,7 +438,8 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 90vh;
 }
 .landing-second {
-  height: 90vh;
+  display: flex;
+  height: 80vh;
   background: #fffaf6;
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.5),
@@ -591,6 +592,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .font1{
+  padding-bottom: 1%;
   font-size: 2vw;
   font-family: "Helvetica Neue", sans-serif;
   font-weight: 250 !important;
@@ -710,6 +712,32 @@ input[type="number"]::-webkit-outer-spin-button {
 
   padding-top: 30%;
   font-family: "Futura", sans-serif;
+}
 
-
+.landing_img{
+  padding-left: 10%;
+  padding-top: 30%;
+  width: 38vw;
+}
+.landing-heading{
+  padding-top: 35%;
+  padding-left: 10%;
+  display: block;
+  font-size: 24px;
+  font-family: "Rubik-Medium";
+  font-weight: 400;
+}
+.landing-desc{
+  padding-left: 10%;
+  padding-right: 15%;
+  font-size: 16px;
+  font-family: "Rubik";
+  font-weight: 30;
+}
+.shop-tag{
+  padding-left: 10%;
+  color: #f75c03;
+  font-size: 18px;
+  font-family: "Rubik-Medium";
+  font-weight: 200;
 }
