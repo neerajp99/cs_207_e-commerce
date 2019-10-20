@@ -152,6 +152,12 @@ class Navbar extends Component {
             <Link to="/all-products" className="nav-link">
               All
             </Link>
+
+            {isAuthenticated && (
+              <Link to="/dashboard" className="nav-link">
+                Dashboard
+              </Link>
+            )}
           </div>
         </nav>
       </div>
