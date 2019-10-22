@@ -6,6 +6,8 @@ export const addToCart = (data, history) => dispatch => {
     .post("/api/cart", data)
     .then(res => {
       console.log("cart", res);
+      window.alert("Item has been added to cart.");
+      
     })
     .catch(error => {
       dispatch({
