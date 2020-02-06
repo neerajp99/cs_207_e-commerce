@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 import left_image from "../../Icons/Logo.png";
-import back_image from "../../img/back.jpg"
+import back_image from "../../img/back.jpg";
 import cart_image from "../../img/mock.jpg";
 import TextField from "../commons/TextField";
 import { logoutUser } from "../../actions/authActions";
@@ -16,8 +16,8 @@ import Wishlist from "./Wishlist";
 class Dashboard extends Component {
   state = {
     active: true,
-    user: false,
-    cart: true,
+    user: true,
+    cart: false,
     wishlist: false,
     account: false,
     orders: false,
@@ -54,6 +54,14 @@ class Dashboard extends Component {
   onLogout = () => {
     this.props.logoutUser(this.props.history);
   };
+
+  // OnChange function to update state
+  onChange = event => {
+    event.preventDefault();
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
   render() {
     console.log(this.props.wishlist);
     const { cartItem } = this.props.cart;
@@ -75,7 +83,9 @@ class Dashboard extends Component {
 
         <div className="row dashboard_row">
           <div className="col-md-4 dashboard_left fixed-bottom">
-            <Link to="/" className="go_back"><img src={back_image} alt="back image" className="back_image"/></Link>
+            <Link to="/" className="go_back">
+              <img src={back_image} alt="back image" className="back_image" />
+            </Link>
             <ul className="list-group text-center dashboard_list ">
               <img
                 src={left_image}
@@ -129,12 +139,22 @@ class Dashboard extends Component {
           <div className="col-md-8 dashboard_right offset-sm-4">
             {this.state.user === true && (
               <div className="row m-auto">
-                <div className="col-md-6 user_info">
+                <div className="col-md-8 user_info">
                   <h2>
                     {" "}
-                    <span>Hello,</span> Neeraj
+                    <span>Hello,</span> {this.props.auth.user.name}
                   </h2>
-                  <img src={cart_image} alt="cart_image" />
+                  <img
+                    src={cart_image}
+                    alt="cart_image"
+                    className="user_info_avatar"
+                  />
+                  <br />
+
+                  <div className="user_info_content">
+                  <button className="user_info_content_button btn btn-primary btn-lg">Create Profile</button>
+
+                  </div>
                 </div>
               </div>
             )}
@@ -218,9 +238,9 @@ class Dashboard extends Component {
                       disabled={true}
                       className="account_textfield"
                       placeholder="Enter new password"
-                      name="email"
-                      type="email"
-                      value={this.state.email}
+                      name="password2"
+                      type="password"
+                      value={this.state.password2}
                       onChange={this.onChange}
                     />
                   </div>
