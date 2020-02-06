@@ -888,3 +888,6 @@ input[type="number"]::-webkit-outer-spin-button {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
 }
+.biography_textarea{
+  max-height: 10vh !important;
+}
