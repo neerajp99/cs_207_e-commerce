@@ -86,7 +86,8 @@ router.post("/login", (req, res) => {
         // create json web token payload
         const payload = {
           id: user.id,
-          name: user.name
+          name: user.name,
+          email: user.email
         };
 
         // Sign in
