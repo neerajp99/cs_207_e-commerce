@@ -25,18 +25,24 @@ router.post(
     if (req.body.bio) {
       profileData.bio = req.body.bio;
     }
+    if (req.body.contact) {
+      profileData.contact = req.body.contact;
+    }
+    if (req.body.address) {
+      profileData.address = req.body.address;
+    }
 
     // social links goes here
-    profileData.social = {};
-    if (req.body.facebook) {
-      profileData.social.facebook = req.body.facebook;
-    }
-    if (req.body.twitter) {
-      profileData.social.twitter = req.body.twitter;
-    }
-    if (req.body.instagram) {
-      profileData.social.linkedin = req.body.linkedin;
-    }
+    // profileData.social = {};
+    // if (req.body.facebook) {
+    //   profileData.social.facebook = req.body.facebook;
+    // }
+    // if (req.body.twitter) {
+    //   profileData.social.twitter = req.body.twitter;
+    // }
+    // if (req.body.instagram) {
+    //   profileData.social.linkedin = req.body.linkedin;
+    // }
 
     Profile.findOne({
       user: req.user.id
