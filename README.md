@@ -1,4 +1,3 @@
-
 ### E-Commerce website built with the MERN Stack
 
 * Steps to run file:
@@ -7,6 +6,11 @@
   * Go to /client folder and use the command `npm install` to install the client packages.
   * Use command `npm run dev` to start the development server
 
+* Contributors:
+  * Neeraj Pandey
+  * Tanuj Sood
+
+* Feel free to raise a PR if you find a problem.
 
 ![Alt text](/client/src/img/screenshots/1.png?raw=true "Screenshot")
 ![Alt text](/client/src/img/screenshots/2.png?raw=true "Screenshot")
@@ -21,10 +25,6 @@
 ![Alt text](/client/src/img/screenshots/11.png?raw=true "Screenshot")
 
 
-* Contributors:
-  * Neeraj Pandey
-  * Tanuj Sood
 
-* Feel free to raise a PR if you find a problem.
  
 
