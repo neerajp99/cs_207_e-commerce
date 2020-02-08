@@ -17,12 +17,7 @@
 ![Alt text](/client/src/img/screenshots/3.png?raw=true "Screenshot")
 ![Alt text](/client/src/img/screenshots/4.png?raw=true "Screenshot")
 ![Alt text](/client/src/img/screenshots/5.png?raw=true "Screenshot")
-![Alt text](/client/src/img/screenshots/6.png?raw=true "Screenshot")
-![Alt text](/client/src/img/screenshots/7.png?raw=true "Screenshot")
-![Alt text](/client/src/img/screenshots/8.png?raw=true "Screenshot")
-![Alt text](/client/src/img/screenshots/9.png?raw=true "Screenshot")
-![Alt text](/client/src/img/screenshots/10.png?raw=true "Screenshot")
-![Alt text](/client/src/img/screenshots/11.png?raw=true "Screenshot")
+
 
 
 
