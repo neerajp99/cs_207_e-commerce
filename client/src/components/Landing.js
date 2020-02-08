@@ -53,14 +53,13 @@ class Landing extends Component {
               <h2 className="landing-heading2">Style. Reimagined.</h2>
               <p className="landing-desc2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <h3 className="shop-tag2">Shop Now →</h3>
             </div>
             <div className="col-md-6 landing-second-left">
               <img src={img1} alt="verticl" className="landing_img2" />
             </div>
         </div>
         <div className="col-lg-12 convincer">
-          <h3 className="convince">Convinced? Browse Now →</h3>
+          <Link to="/all-products"><h3 className="convince">Convinced? Browse Now →</h3></Link>
         </div>
       </div>
     );
