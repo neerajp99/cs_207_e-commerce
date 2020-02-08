@@ -52,6 +52,9 @@ class Cart extends Component {
       const newPrice = parseInt(
         (this.state.quantity + 1) * this.state.initialPrice
       );
+      if (this.props.xx) {
+        this.props.xx(this.state.initialPrice)
+      }
       this.setState({
         price: newPrice,
         quantity: newQuantity,
@@ -65,6 +68,9 @@ class Cart extends Component {
     const newPrice = parseInt(
       (this.state.quantity - 1) * this.state.initialPrice
     );
+    if (this.props.xx) {
+      this.props.xx(-this.state.initialPrice)
+    }
     if (newQuantity >= this.state.minQuantity) {
       this.setState({
         price: newPrice,
@@ -74,6 +80,12 @@ class Cart extends Component {
     }
     this.forceUpdate();
   };
+
+  componentDidMount(){
+    if(this.props.xx) {
+      this.props.xx(this.state.price)
+    }
+  }
 
   getPrice = () => {
     const newPrice = parseInt(this.state.quantity * this.state.initialPrice);
