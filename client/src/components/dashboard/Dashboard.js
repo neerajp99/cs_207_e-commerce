@@ -5,6 +5,7 @@ import left_image from "../../Icons/Logo.png";
 import back_image from "../../img/back.jpg";
 import cart_image from "../../img/mock.jpg";
 import TextField from "../commons/TextField";
+import TextAreaField from "../commons/TextAreaField";
 import { logoutUser } from "../../actions/authActions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -12,6 +13,8 @@ import { getCartItems } from "../../actions/cartActions";
 import { getWishlistItems } from "../../actions/wishlistActions";
 import Cart from "./Cart";
 import Wishlist from "./Wishlist";
+import { getProfile } from "../../actions/profileActions";
+import element from "../../img/element.png";
 
 class Dashboard extends Component {
   state = {
@@ -30,6 +33,7 @@ class Dashboard extends Component {
 
   componentDidMount() {
     this.props.getCartItems();
+    this.props.getProfile();
     this.props.getWishlistItems();
     if (this.state.logout === true) {
       this.props.logoutUser(this.props.history);
@@ -152,8 +156,51 @@ class Dashboard extends Component {
                   <br />
 
                   <div className="user_info_content">
-                  <button className="user_info_content_button btn btn-primary btn-lg">Create Profile</button>
+                    {Object.keys(this.props.profile.profile).length === 0 && (
+                      <Link to="/create-profile">
+                        <button className="user_info_content_button btn btn-primary btn-lg">
+                          Create Profile
+                        </button>
+                      </Link>
+                    )}
+                    {Object.keys(this.props.profile.profile).length !== 0 && (
+                      <div className="user_profile_dashboard">
+                        <div className="user_profile_dashboard_list">
+                          <div className=" account_field_one">
+                            <small>Handle</small>
+                            <div id="dashboard_textfield">
+                              {this.props.profile.profile.handle}
+                            </div>
+                          </div>
+                          <div className=" account_field_one">
+                            <small>Organisation</small>
 
+                            <div id="dashboard_textfield">
+                              {this.props.profile.profile.organisation}
+                            </div>
+                          </div>
+                          <div className=" account_field_one">
+                            <small>Contact</small>
+
+                            <div id="dashboard_textfield">
+                              {this.props.profile.profile.contact}
+                            </div>
+                          </div>
+                          <div className=" account_field_one">
+                            <small>Biography</small>
+                            <div className="dashboard_textarea">
+                              {this.props.profile.profile.bio}
+                            </div>
+                          </div>
+                          <div className=" account_field_one">
+                            <small>Address</small>
+                            <div className="dashboard_textarea">
+                              {this.props.profile.profile.address}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -178,7 +225,11 @@ class Dashboard extends Component {
                   <button className="btn-dark btn btn-info btn-block mt-4 checkout_button">
                     Checkout
                   </button>
+                  <button className="btn-dark btn btn-info btn-block mt-4 save_button checkout_button">
+                    Save and Update Cart
+                  </button>
                 </div>
+                ;
               </div>
             )}
 
@@ -203,7 +254,7 @@ class Dashboard extends Component {
                     <small>Email</small>
                     <TextField
                       className="account_textfield"
-                      placeholder="tanuj,sood@gmail.com"
+                      placeholder={this.props.auth.user.email}
                       name="email"
                       type="email"
                       value={this.state.email}
@@ -214,9 +265,9 @@ class Dashboard extends Component {
                     <small>Phone</small>
                     <TextField
                       className="account_textfield"
-                      placeholder="Enter Contact Number"
+                      placeholder="Contact Number"
                       name="number"
-                      type="number"
+                      type="text"
                       value={this.state.number}
                       onChange={this.onChange}
                     />
@@ -280,10 +331,11 @@ class Dashboard extends Component {
 const mapStateToProps = state => ({
   auth: state.auth,
   cart: state.cart,
-  wishlist: state.wishlist
+  wishlist: state.wishlist,
+  profile: state.profile
 });
 
 export default connect(
   mapStateToProps,
-  { logoutUser, getCartItems, getWishlistItems }
+  { logoutUser, getCartItems, getWishlistItems, getProfile }
 )(withRouter(Dashboard));
