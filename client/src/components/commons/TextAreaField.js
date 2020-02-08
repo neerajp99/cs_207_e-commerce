@@ -8,7 +8,8 @@ const TextAreaField = ({
   error,
   info,
   onChange,
-  label
+  label,
+  id
 }) => {
   return (
     <div className="form-group">
@@ -19,6 +20,7 @@ const TextAreaField = ({
         name={name}
         value={value}
         onChange={onChange}
+        id = {id}
       />
       {info && <small className="form-text text-muted">{info}</small>}
     </div>
