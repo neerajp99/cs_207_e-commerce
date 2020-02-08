@@ -28,7 +28,10 @@ class Dashboard extends Component {
     email: "",
     number: "",
     password: "",
-    password2: ""
+    password2: "",
+    organisation: "",
+    handle: "",
+    finalPrice: 0
   };
 
   componentDidMount() {
@@ -71,7 +74,15 @@ class Dashboard extends Component {
     const { cartItem } = this.props.cart;
     const { wishlistItem } = this.props.wishlist;
     const cartItems = Object.keys(cartItem).map((key, index) => (
-      <Cart key={key} details={cartItem[key]} />
+      <Cart
+        key={key}
+        details={cartItem[key]}
+        xx={x => {
+          this.setState({
+            finalPrice: this.state.finalPrice + x
+          });
+        }}
+      />
     ));
     const wishlistItems = Object.keys(wishlistItem).map((key, index) => (
       <Wishlist key={key} details={wishlistItem[key]} />
@@ -164,42 +175,11 @@ class Dashboard extends Component {
                       </Link>
                     )}
                     {Object.keys(this.props.profile.profile).length !== 0 && (
-                      <div className="user_profile_dashboard">
-                        <div className="user_profile_dashboard_list">
-                          <div className=" account_field_one">
-                            <small>Handle</small>
-                            <div id="dashboard_textfield">
-                              {this.props.profile.profile.handle}
-                            </div>
-                          </div>
-                          <div className=" account_field_one">
-                            <small>Organisation</small>
-
-                            <div id="dashboard_textfield">
-                              {this.props.profile.profile.organisation}
-                            </div>
-                          </div>
-                          <div className=" account_field_one">
-                            <small>Contact</small>
-
-                            <div id="dashboard_textfield">
-                              {this.props.profile.profile.contact}
-                            </div>
-                          </div>
-                          <div className=" account_field_one">
-                            <small>Biography</small>
-                            <div className="dashboard_textarea">
-                              {this.props.profile.profile.bio}
-                            </div>
-                          </div>
-                          <div className=" account_field_one">
-                            <small>Address</small>
-                            <div className="dashboard_textarea">
-                              {this.props.profile.profile.address}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      <Link to="/modify-profile">
+                        <button className="user_info_content_button btn btn-primary btn-lg">
+                          Modify Profile
+                        </button>
+                      </Link>
                     )}
                   </div>
                 </div>
@@ -215,7 +195,7 @@ class Dashboard extends Component {
                 <div className="row cart_items">{cartItems}</div>
                 <div className="subtotal col-md-8 ">
                   <h3 className="subtotal_text text-left">
-                    <span>Subtotal:</span> $20.98
+                    <span>Subtotal:</span> ${this.state.finalPrice}
                   </h3>
 
                   <div className="cart-li-message">
@@ -257,62 +237,51 @@ class Dashboard extends Component {
                       placeholder={this.props.auth.user.email}
                       name="email"
                       type="email"
-                      value={this.state.email}
-                      onChange={this.onChange}
+                      value={this.props.auth.user.email}
                     />
                   </div>
                   <div className="col-md-5 settings_field">
                     <small>Phone</small>
                     <TextField
                       className="account_textfield"
-                      placeholder="Contact Number"
+                      placeholder={this.props.profile.profile.contact}
                       name="number"
                       type="text"
-                      value={this.state.number}
-                      onChange={this.onChange}
+                      value={this.props.profile.profile.contact}
                     />
                   </div>
                   <div className="col-md-5 settings_field">
-                    <small>Password</small>
+                    <small>Organisation</small>
                     <TextField
                       className="account_textfield"
-                      placeholder="*******"
-                      name="email"
-                      type="passsword"
-                      value={this.state.password}
-                      onChange={this.onChange}
+                      placeholder={this.props.profile.profile.organisation}
+                      name="organisation"
+                      type="text"
+                      value={this.props.profile.profile.organisation}
                     />
                   </div>
                   <div className="col-md-5 settings_field">
-                    <small>New Password</small>
+                    <small>Handle</small>
                     <TextField
                       disabled={true}
                       className="account_textfield"
-                      placeholder="Enter new password"
-                      name="password2"
-                      type="password"
-                      value={this.state.password2}
-                      onChange={this.onChange}
+                      placeholder={this.props.profile.profile.handle}
+                      name="handle"
+                      type="text"
+                      value={this.props.profile.profile.handle}
                     />
                   </div>
-
-                  <button class="btn-dark btn btn-info mt-4 col-md-10 changes_button">
-                    Save Changes
-                  </button>
                 </div>
                 <h3 className="address_settings_title">Addresses </h3>
                 <div class="row col-md-12">
                   <div className="col-md-5 address_field">
                     <small>DEFAULT</small>
                     <h4 className="text-left cardss_h3 address_name">
-                      Macbook Pro
+                      {this.props.auth.user.name}
                     </h4>
 
                     <p className="card-text cardss_p address_p">
-                      B-304, <br />
-                      Antariksh Apartments, <br />
-                      Dwarka Sector-5, <br />
-                      New Delhi-110075
+                      {this.props.profile.profile.address}
                     </p>
                   </div>
                   <div className="col-md-5 address_field">
