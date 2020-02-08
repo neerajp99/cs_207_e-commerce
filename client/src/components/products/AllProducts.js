@@ -44,7 +44,7 @@ class AllProducts extends Component {
     console.log("Props", this.props.items);
 
     Object.keys(showingShoes).map((key, index) => {
-      console.log(showingShoes[key]);
+      // console.log(showingShoes[key]);
     });
     const itemss = Object.keys(showingShoes).map((key, index) => (
       <div className="card cardsss" style={{ width: "18rem" }}>
