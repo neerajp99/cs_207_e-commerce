@@ -59,6 +59,7 @@ class Product extends Component {
         price: this.props.items.item.price,
         productId: this.props.items.item._id
       };
+      console.log(wishlistFields)
       this.props.addToWishlist(wishlistFields, this.props.history);
     }
   };
