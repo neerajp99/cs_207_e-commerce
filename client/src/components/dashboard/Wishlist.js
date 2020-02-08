@@ -8,7 +8,8 @@ import { deleteWishlist } from "../../actions/wishlistActions";
 
 class Wishlist extends Component {
   onClick = event => {
-    event.preventDefault()
+    event.preventDefault();
+    console.log(this.props.details.productId)
     this.props.moveToCart(this.props.details.productId);
   };
 
@@ -22,7 +23,7 @@ class Wishlist extends Component {
     return (
       <div className="card cardss" style={{ width: "18rem" }}>
         <img src={cart_image} className="card-img-top" alt="..." />
-        <div className="card-body">
+        <div className="card-body min-card-body">
           <img src={delete_icon} alt="delete_icon" className="wishlist_delete_icon" onClick={this.onClickDelete}/>
           <h3 className="text-left cardss_h3">{details.product.name}</h3>
           <small>
