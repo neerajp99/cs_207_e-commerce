@@ -6,15 +6,17 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import TextAreaField from "./commons/TextAreaField";
 import SelectList from "./commons/SelectList";
+import back_image from "../img/back.jpg";
+import { createProfile} from "../actions/profileActions"
 
 class AddProduct extends Component {
   state = {
-    name: "",
-    description: "",
-    category: "",
-    price: "",
-    size: "",
-    errors: {}
+    handle: "",
+    organisation: "",
+    bio: "",
+    errors: {},
+    contact: "",
+    address: ""
   };
 
   // componentDidMount() {
@@ -33,6 +35,7 @@ class AddProduct extends Component {
   //   }
   // }
 
+  // Onchange method to update state
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -42,19 +45,23 @@ class AddProduct extends Component {
   onSubmit = event => {
     event.preventDefault();
     const item = {
-      name: this.state.name,
-      description: this.state.description,
-      category: this.state.category,
-      price: this.state.price,
-      size: this.state.size
+      handle: this.state.handle,
+      organisation: this.state.organisation,
+      bio: this.state.bio,
+      contact: this.state.contact,
+      address: this.state.address
     };
+    this.props.createProfile(item, this.props.history)
     // this.props.postItem(item, this.props.history);
   };
 
   render() {
     return (
       <div className="container">
-        <div className="login container">
+      <Link to="/dashboard" className="go_back">
+        <img src={back_image} alt="back image" className="back_image back-image" />
+      </Link>
+        <div className="login container profile">
           <div className="row justify-content-center">
             <div class="col-8 center_text m-auto">
               <h1 className="login_heading display-5 text-center">
@@ -84,7 +91,6 @@ class AddProduct extends Component {
                     label="User Organisation"
                   />
 
-
                   <TextAreaField
                     placeholder="ex: Hi! I am a cool person."
                     name="bio"
@@ -92,9 +98,24 @@ class AddProduct extends Component {
                     value={this.state.bio}
                     onChange={this.onChange}
                     label="Biography"
+                    id="biography_textarea"
                   />
-
-
+                  <TextField
+                    placeholder="ex: +918766767336"
+                    name="contact"
+                    type="text"
+                    value={this.state.contact}
+                    onChange={this.onChange}
+                    label="Contact Number"
+                  />
+                  <TextField
+                    placeholder="Addresss"
+                    name="address"
+                    type="text"
+                    value={this.state.address}
+                    onChange={this.onChange}
+                    label="User Address"
+                  />
 
                   <input
                     type="submit"
@@ -112,7 +133,8 @@ class AddProduct extends Component {
 
 AddProduct.propTypes = {
   errors: PropTypes.object.isRequired,
-  // postItem: PropTypes.func.isRequired
+  createProfile: PropTypes.func.isRequired,
+  getProfile: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -121,5 +143,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { }
+  {createProfile}
 )(withRouter(AddProduct));
