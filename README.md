@@ -6,8 +6,7 @@
   * Use command `npm install` inside the root folder to install the packages.
   * Go to /client folder and use the command `npm install` to install the client packages.
   * Use command `npm run dev` to start the development server
-
-
+  
 ![Alt text](/client/src/img/screenshots/1.png?raw=true "Screenshot")
 ![Alt text](/client/src/img/screenshots/2.png?raw=true "Screenshot")
 ![Alt text](/client/src/img/screenshots/3.png?raw=true "Screenshot")
