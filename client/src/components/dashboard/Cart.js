@@ -10,9 +10,9 @@ class Cart extends Component {
     quantity: this.props.details.quantity,
     oldQuantity: 0,
     minQuantity: 1,
-    maxQuantity: 20,
+    maxQuantity: 5,
     initialPrice: this.props.details.product.price,
-    price: this.props.details.product.price
+    price: this.props.details.product.price * this.props.details.quantity
   };
   onClickDelete = event => {
     event.preventDefault();
@@ -49,25 +49,30 @@ class Cart extends Component {
   incrementValue = () => {
     const newQuantity = parseInt(this.state.quantity, 10) + 1;
     if (newQuantity <= this.state.maxQuantity) {
+      const newPrice = parseInt(
+        (this.state.quantity + 1) * this.state.initialPrice
+      );
       this.setState({
+        price: newPrice,
         quantity: newQuantity,
         oldQuantity: this.state.quantity
       });
-      this.getPrice();
     }
   };
 
   decrementValue = () => {
     const newQuantity = parseInt(this.state.quantity, 10) - 1;
+    const newPrice = parseInt(
+      (this.state.quantity - 1) * this.state.initialPrice
+    );
     if (newQuantity >= this.state.minQuantity) {
       this.setState({
+        price: newPrice,
         quantity: newQuantity,
         oldQuantity: this.state.quantity
       });
-      this.getPrice();
-      console.log(this.state.price);
     }
-    // this.forceUpdate();
+    this.forceUpdate();
   };
 
   getPrice = () => {
