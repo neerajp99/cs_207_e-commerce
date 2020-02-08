@@ -16,6 +16,7 @@ import AllProducts from "./components/products/AllProducts";
 import Product from "./components/products/Product";
 import ProtectedRoute from "./components/commons/ProtectedRoute";
 import Profile from "./components/Profile";
+import ModifyProfile from "./components/ModifyProfile"
 
 // Check if the user is already authenticated
 
@@ -65,6 +66,13 @@ class App extends Component {
                 exact
                 path="/create-profile"
                 component={Profile}
+              />
+            </Switch>
+            <Switch>
+              <ProtectedRoute
+                exact
+                path="/modify-profile"
+                component={ModifyProfile}
               />
             </Switch>
             <Route exact path="/all-products" render={() => <AllProducts />} />
