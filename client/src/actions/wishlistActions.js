@@ -5,6 +5,7 @@ export const addToWishlist = (data, history) => dispatch => {
   axios
     .post("/api/wishlist", data)
     .then(res => {
+      window.alert("Item has been added to wishlist.");
       console.log("wishlist", res);
     })
     .catch(error => {
