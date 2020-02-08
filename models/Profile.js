@@ -13,23 +13,17 @@ const ProfileSchema = new Schema({
   organisation: {
     type: String
   },
-  website: {
-    type: String
-  },
   bio: {
     type: String,
     isRequired: true
   },
-  social: {
-    twitter: {
-      type: String
-    },
-    facebook: {
-      type: String
-    },
-    instagram: {
-      type: String
-    }
+  contact: {
+    type: String,
+    isRequired: true
+  },
+  address: {
+    type: String,
+    isRequired: true
   }
 });
 

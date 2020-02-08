@@ -5,7 +5,7 @@ const CartSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: "users"
-  }, 
+  },
   productId: {
     type: String,
     isRequired: true
@@ -36,6 +36,10 @@ const CartSchema = new Schema({
       type: Number,
       min: 0,
       required: true
+    },
+    finalPrice: {
+      type: Number,
+      min: 0
     },
     size: {
       type: [String],
